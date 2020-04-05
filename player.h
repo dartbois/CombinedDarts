@@ -9,17 +9,19 @@ class player
 public:
     player();
 private:
-    int playerScore[2];
-    int playerLeagueRank[2];
-    int avgScoreSeason[2];
-    int avgScoreLifetime[2];
-    int num180sMatch[2];
-    int num180sSeason[2];
-    int num180sLifetime[2];
-    string hometown[2];
-    string lastSeasonWin[2];
-    string playerName[2];
-    string playerNickname[2];
+    int playerMatch180s[2];
+    string playerFirst[2];
+    string playerLast[2];
+    string playerHometown[2];
+    int playerRanking[2];
+    float playerAvg180s[2];
+    float playerAvg180Season[2];
+    string playerLastWin[2];
+    float playerAvgThrow[2];
+    float playerAvgThrowSeason[2];
+    int playerTurnScoreHi[2];
+    int playerTurnScoreLo[2];
+
 };
 
 #endif // PLAYER_H

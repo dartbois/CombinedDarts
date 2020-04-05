@@ -10,8 +10,8 @@ class sqlHandler
 {
 public:
     sqlHandler(const QString& path);
-    player sqlGetPlayer(QString& name);
-    void sqlSetPlayer(QString& name);
+    player sqlGetPlayer(QString& playerID1, QString& playerID2);
+    void sqlSetPlayer(QString& playerID, player Player);
 private:
     QSqlDatabase m_db;
 };

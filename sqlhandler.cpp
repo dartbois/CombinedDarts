@@ -22,13 +22,14 @@ sqlHandler::sqlHandler(const QString& path) {
 }
 
 //Getter: needs to get player info from SQLite
-player sqlHandler::sqlGetPlayer(QString& name) {
+player sqlHandler::sqlGetPlayer(QString& playerID1, QString& playerID2) {
     player myPlayer;
+    //m_db.exec(something goes here oh god)
     return myPlayer;
 }
 
 //Setter: needs to set final player info into SQLite
-void sqlHandler::sqlSetPlayer(QString& name) {
+void sqlHandler::sqlSetPlayer(QString& playerID, player Player) {
 
 
 }
