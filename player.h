@@ -8,7 +8,6 @@ class player
 {
 public:
     player();
-private:
     int playerMatch180s[2];
     string playerFirst[2];
     string playerLast[2];
@@ -16,7 +15,7 @@ private:
     int playerRanking[2];
     float playerAvg180s[2];
     float playerAvg180Season[2];
-    string playerLastWin[2];
+    int playerLastWin[2];
     float playerAvgThrow[2];
     float playerAvgThrowSeason[2];
     int playerTurnScoreHi[2];

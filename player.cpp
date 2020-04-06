@@ -22,8 +22,8 @@ player::player()
     playerAvg180s[1] = stof(initData.getData("SQLHandler:p2avg180s"));
     playerAvg180Season[0] = stof(initData.getData("SQLHandler:p1avg180season"));
     playerAvg180Season[1] = stof(initData.getData("SQLHandler:p2avg180season"));
-    playerLastWin[0] = initData.getData("SQLHandler:p1LastWin");
-    playerLastWin[1] = initData.getData("SQLHandler:p2LastWin");
+    playerLastWin[0] = stoi(initData.getData("SQLHandler:p1LastWin"));
+    playerLastWin[1] = stoi(initData.getData("SQLHandler:p2LastWin"));
     playerAvgThrow[0] = stof(initData.getData("SQLHandler:p1AvgThrow"));
     playerAvgThrow[1] = stof(initData.getData("SQLHandler:p2AvgThrow"));
     playerAvgThrowSeason[0] = stof(initData.getData("SQLHandler:p1AvgThrowSeason"));
