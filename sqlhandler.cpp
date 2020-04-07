@@ -32,129 +32,164 @@ sqlHandler::sqlHandler(const QString& path) {
     }
 }
 
-
-//Getter: Given two competing player IDs, fills a player class with those players' information
-player sqlHandler::sqlGetPlayer(int playerID1, int playerID2) {
-    player myPlayer;
-
+string sqlHandler::sqlGetFirstName(int playerID){
     QSqlQuery query;
-    QString querystring[2];
+    QString querystring;
 
-    // 1 - Get Players' First Names
-    querystring[0] = "SELECT [First Name] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [First Name] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerFirst[0] = query.value(0).toString().toStdString();
-    query.exec(querystring[1]);
-    myPlayer.playerFirst[1] = query.value(0).toString().toStdString();
+    querystring = "SELECT [First Name] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
 
-    // 2 - Get Players' Last Names
-    querystring[0] = "SELECT [Last Name] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Last Name] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerLast[0] = query.value(0).toString().toStdString();
-    query.exec(querystring[1]);
-    myPlayer.playerLast[1] = query.value(0).toString().toStdString();
+    query.exec(querystring);
 
-    // 3 - Get Players' Hometown
-    querystring[0] = "SELECT Hometown FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT Hometown FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerHometown[0] = query.value(0).toString().toStdString();
-    query.exec(querystring[1]);
-    myPlayer.playerHometown[1] = query.value(0).toString().toStdString();
+    return query.value(0).toString().toStdString();
+}
 
-    // 4 - Get Players' Ranking
-    querystring[0] = "SELECT Ranking FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT Ranking FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerRanking[0] = query.value(0).toInt();
-    query.exec(querystring[1]);
-    myPlayer.playerRanking[1] = query.value(0).toInt();
+string sqlHandler::sqlGetLastName(int playerID){
+    QSqlQuery query;
+    QString querystring;
 
-    // 5 - Get Players' Lifetime avg 180s
-    querystring[0] = "SELECT [Avg 180s] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Avg 180s] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerAvg180s[0] = query.value(0).toFloat();
-    query.exec(querystring[1]);
-    myPlayer.playerAvg180s[1] = query.value(0).toFloat();
+    querystring = "SELECT [Last Name] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
 
-    // 6 - Get Players' Season avg 180s
-    querystring[0] = "SELECT [Avg 180s (Season)] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Avg 180s (Season)] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerAvg180Season[0] = query.value(0).toFloat();
-    query.exec(querystring[1]);
-    myPlayer.playerAvg180Season[1] = query.value(0).toFloat();
+    query.exec(querystring);
 
-    // 7 - Get Players' Last Game Win (by Game ID)
-    querystring[0] = "SELECT [Last Game Win] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Last Game Win] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerLastWin[0] = query.value(0).toInt();
-    query.exec(querystring[1]);
-    myPlayer.playerLastWin[1] = query.value(0).toInt();
+    return query.value(0).toString().toStdString();
+}
 
-    // 8 - Get Players' Avg Throw Score
-    querystring[0] = "SELECT [Avg Throw Score] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Avg Throw Score] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerAvgThrow[0] = query.value(0).toFloat();
-    query.exec(querystring[1]);
-    myPlayer.playerAvgThrow[1] = query.value(0).toFloat();
+string sqlHandler::sqlGetHometown(int playerID){
+    QSqlQuery query;
+    QString querystring;
 
-    // 9 - Get Players' Avg Throw Score for the Season
-    querystring[0] = "SELECT [Avg Throw Score (Season)] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Avg Throw Score (Season)] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerAvgThrowSeason[0] = query.value(0).toFloat();
-    query.exec(querystring[1]);
-    myPlayer.playerAvgThrowSeason[1] = query.value(0).toFloat();
+    querystring = "SELECT Hometown FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
 
-    // 10 - Get Players' Highest Turn Score
-    querystring[0] = "SELECT [Turn Score High] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Turn Score High] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerTurnScoreHi[0] = query.value(0).toInt();
-    query.exec(querystring[1]);
-    myPlayer.playerTurnScoreHi[1] = query.value(0).toInt();
+    query.exec(querystring);
 
-    // 11 - Get Players' Lowest Turn Score
-    querystring[0] = "SELECT [Turn Score Low] FROM players WHERE [Player ID] = ";
-    querystring[0].append(playerID1);
-    querystring[1] = "SELECT [Turn Score Low] FROM players WHERE [Player ID] = ";
-    querystring[1].append(playerID2);
-    query.exec(querystring[0]);
-    myPlayer.playerTurnScoreLo[0] = query.value(0).toInt();
-    query.exec(querystring[1]);
-    myPlayer.playerTurnScoreLo[1] = query.value(0).toInt();
+    return query.value(0).toString().toStdString();
+}
 
-    return myPlayer;
+int sqlHandler::sqlGetRanking(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT Ranking FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toInt();
+}
+
+float sqlHandler::sqlGetAvg180s(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Avg 180s] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toFloat();
+}
+
+float sqlHandler::sqlGetAvg180sSeason(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Avg 180s (Season)] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toFloat();
+}
+
+int sqlHandler::sqlGetLastGameWin(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Last Game Win] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toInt();
+}
+
+float sqlHandler::sqlGetAvgThrowScore(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Avg Throw Score] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toFloat();
+}
+
+float sqlHandler::sqlGetAvgThrowScoreSeason(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Avg Throw Score (Season)] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toFloat();
+}
+
+int sqlHandler::sqlGetTurnScoreHi(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Turn Score High] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toInt();
+}
+
+int sqlHandler::sqlGetTurnScoreLo(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT [Turn Score Low] FROM players WHERE [Player ID] = ";
+    querystring.append(playerID);
+
+    query.exec(querystring);
+
+    return query.value(0).toInt();
+}
+
+//Getter: needs to get all player information from SQLite (for populating lists)
+string* sqlHandler::sqlGetPlayerList() {
+    int num_of_players = 0;
+    QSqlQuery query;
+    QString querystring;
+
+    querystring = "SELECT COUNT(*) FROM players";
+    query.exec(querystring);
+    num_of_players = query.value(0).toInt();
+
+    string playerInfoLine[num_of_players];
+    int i = 0;
+
+    querystring = "SELECT * FROM players";
+    query.exec(querystring);
+    while (query.next()){
+        playerInfoLine[i] = query.value(0).toString().toStdString();
+    }
+
+    return playerInfoLine;
 }
 
 //Setter: needs to set final player info into SQLite
-void sqlHandler::sqlSetPlayer(QString& playerID, player Player) {
+void sqlHandler::sqlSetPlayerFinal(QString& playerID, player Player) {
 
 
 }
+
+//Setter: needs to add a new player to the SQLite db
