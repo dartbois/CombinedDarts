@@ -33,6 +33,8 @@ sqlHandler::sqlHandler(const QString& path) {
     }
 }
 
+
+//Getters: used to get individual player values from SQLite db
 string sqlHandler::sqlGetFirstName(int playerID){
     QSqlQuery query;
 
@@ -192,33 +194,130 @@ int sqlHandler::sqlGetGamesWon(int playerID){
     return query.value(0).toInt();
 }
 
-
-
-
 //Getter: needs to get all player information from SQLite (for populating lists)
 string sqlHandler::sqlGetPlayerList() {
-    int num_of_players = 0;
     QSqlQuery query;
-    QString querystring;
+    string temp;
+    string playerInfoLine = "";
 
-    string playerInfoLine = "Yeet";
+    query.prepare("SELECT [Player ID], [First Name], [Last Name], [Hometown], [Ranking], [Num Games Won] FROM players");
+    query.exec();
 
-    //currently borked.
-    /*querystring = "SELECT COUNT(*) FROM players";
-    query.exec(querystring);
-    num_of_players = query.value(0).toInt();
-
-    string playerInfoLine[num_of_players];
-    int i = 0;
-
-    querystring = "SELECT * FROM players";
-    query.exec(querystring);
     while (query.next()){
-        playerInfoLine[i] = query.value(0).toString().toStdString();
-    }*/
+        temp = query.value(0).toString().toStdString();
+        playerInfoLine.append(temp);
+        playerInfoLine.append("\n");
+    }
 
     return playerInfoLine;
 }
+
+//Getters: used to get individual game information from db
+string sqlHandler::sqlGetGameName(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT [Game Name] FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toString().toStdString();
+}
+
+string sqlHandler::sqlGetGameDate(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT Date FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toString().toStdString();
+}
+
+string sqlHandler::sqlGetGameLocation(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT Location FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toString().toStdString();
+}
+
+int sqlHandler::sqlGetGameStartScore(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT [Start Score] FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+int sqlHandler::sqlGetGameMatches(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT [Max # Matches] FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+int sqlHandler::sqlGetGameLegs(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT [Max # Legs] FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+int sqlHandler::sqlGetGameP1(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT Player1 FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+int sqlHandler::sqlGetGameP2(int gameID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT Player2 FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+
 
 //Setter: needs to set final player info into SQLite
 void sqlHandler::sqlSetPlayerFinal(QString& playerID, player Player) {

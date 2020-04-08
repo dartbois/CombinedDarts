@@ -25,6 +25,15 @@ public:
     int sqlGetGamesPlayed(int playerID);
     int sqlGetGamesWon(int playerID);
 
+    string sqlGetGameName(int gameID);
+    string sqlGetGameDate(int gameID);
+    string sqlGetGameLocation(int gameID);
+    int sqlGetGameStartScore(int gameID);
+    int sqlGetGameMatches(int gameID);
+    int sqlGetGameLegs(int gameID);
+    int sqlGetGameP1(int gameID);
+    int sqlGetGameP2(int gameID);
+
     player sqlGetPlayer(int playerID1, int playerID2);
     string sqlGetPlayerList();
     void sqlSetPlayerFinal(QString& playerID, player Player);
