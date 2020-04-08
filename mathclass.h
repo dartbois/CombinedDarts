@@ -10,6 +10,7 @@ public:
     string winnerCalc(); //calculates the match winner
     string winThrowCalc(int player); //calculates the winning throws
     void scoreSubtract(int player, int throwScore); //subtracts score from total, player is 0 or 1
+    string dataGet(string request);
 private:
     int currentScore[2]; //current score
     bool scoreValidator(int remScore);

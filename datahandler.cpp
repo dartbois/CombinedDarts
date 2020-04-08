@@ -8,7 +8,7 @@ DataHandler::DataHandler()
 {
 
 }
-
+/*
 string DataHandler::getData(string request) {
     char requestHandler[40];
     char reqClass[20];
@@ -73,7 +73,7 @@ string DataHandler::setData(string request) {
     return ansHandler;
 
 }
-
+*/
 string DataHandler::sqlGet(string request){
     //playerid:variable
     char requestHandler[65] = {'\0'};
@@ -140,14 +140,17 @@ string DataHandler::sqlGet(string request){
 
     return answer;
 }
-string DataHandler::mathcGet(string request){
-    return NULL;
+string DataHandler::mathcGet(string request, mathClass myM){
+    //request should be score1 or score2
+    string answer = myM.dataGet(request);
+    return answer;
 }
 string DataHandler::playerGet(string request, player myPlayer){
     string answer = myPlayer.dataGet(request);
     return answer;
 }
-string DataHandler::matchstartGet(string request){
-    return NULL;
+string DataHandler::matchstartGet(string request, MatchStartData myS){
+    string answer = myS.dataGet(request);
+    return answer;
 }
 

@@ -154,3 +154,13 @@ bool mathClass::scoreValidator(int remScore) {
     return check;
 };
 
+string mathClass::dataGet(string request) {
+    string answer;
+    if (request=="score1") {
+        answer = to_string(this->currentScore[0]);
+    }
+    else if (request == "score2") {
+        answer = to_string(this->currentScore[1]);
+    }
+    return answer;
+}

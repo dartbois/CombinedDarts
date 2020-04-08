@@ -12,6 +12,7 @@ public:
     int legNumber;
     int matchNumber;
     string playersParticipating[2];
+    string dataGet(string request);
 
 };
 
