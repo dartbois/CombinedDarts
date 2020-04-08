@@ -2,6 +2,8 @@
 #define DATAHANDLER_H
 #include <string>
 #include "player.h"
+#include "mathclass.h"
+#include "matchstartdata.h"
 
 using namespace std;
 
@@ -14,8 +16,8 @@ public:
     string setData(string request);
 
     string sqlGet(string request);
-    string mathcGet(string request);
-    string matchstartGet(string request);
+    string mathcGet(string request, mathClass myM);
+    string matchstartGet(string request, MatchStartData myS);
     string playerGet(string request, player myP);
 };
 

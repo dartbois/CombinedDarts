@@ -1,6 +1,8 @@
 #include "datahandler.h"
 #include <cstring>
 #include "sqlhandler.h"
+#include "mathclass.h"
+#include "matchstartdata.h"
 
 using namespace std;
 
