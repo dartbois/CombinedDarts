@@ -22,6 +22,8 @@ public:
     float sqlGetAvgThrowScoreSeason(int playerID);
     int sqlGetTurnScoreHi(int playerID);
     int sqlGetTurnScoreLo(int playerID);
+    int sqlGetGamesPlayed(int playerID);
+    int sqlGetGamesWon(int playerID);
 
     player sqlGetPlayer(int playerID1, int playerID2);
     string sqlGetPlayerList();

@@ -166,6 +166,35 @@ int sqlHandler::sqlGetTurnScoreLo(int playerID){
     return query.value(0).toInt();
 }
 
+int sqlHandler::sqlGetGamesPlayed(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT [Num Games Played] FROM players WHERE [Player ID] = ?");
+    query.bindValue(0, playerID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+int sqlHandler::sqlGetGamesWon(int playerID){
+    QSqlQuery query;
+    QString querystring;
+
+    query.prepare("SELECT [Num Games Won] FROM players WHERE [Player ID] = ?");
+    query.bindValue(0, playerID);
+
+    query.exec();
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+
+
+
 //Getter: needs to get all player information from SQLite (for populating lists)
 string sqlHandler::sqlGetPlayerList() {
     int num_of_players = 0;

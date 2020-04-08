@@ -8,11 +8,8 @@ player::player(int playerID, int playerID2)
     string id1 = to_string(playerID);
     string id2 = to_string(playerID2);
     string req;
-    //matctch180s is 0
-    playerMatch180s[0] = 0;
-    playerMatch180s[1] = 0;
 
-    //score is 0 figure out what this means
+    //Variables coming from SQLite
     req = id1 + ":playerFirst";
     playerFirst[0] = myD.sqlGet(req);
     req = id2 + ":playerFirst";
@@ -57,6 +54,22 @@ player::player(int playerID, int playerID2)
     playerTurnScoreLo[0] = stoi(myD.sqlGet(req));
     req = id2 + ":playerTurnScoreLo";
     playerTurnScoreLo[1] = stoi(myD.sqlGet(req));
+    req = id1 + ":playerGamesPlayed";
+    playerGamesPlayed[0] = stoi(myD.sqlGet(req));
+    req = id2 + ":playerGamesPlayed";
+    playerGamesPlayed[1] = stoi(myD.sqlGet(req));
+    req = id1 + ":playerGamesWon";
+    playerGamesWon[0] = stoi(myD.sqlGet(req));
+    req = id2 + ":playerGamesWon";
+    playerGamesWon[1] = stoi(myD.sqlGet(req));
+
+
+    //In-Game or Calculated Variables
+    playerWinPercent[0] = (playerGamesWon[0] / playerGamesPlayed[0]) * 100;
+    playerWinPercent[1] = (playerGamesWon[1] / playerGamesPlayed[1]) * 100;
+    playerMatch180s[0] = 0;
+    playerMatch180s[1] = 0;
+
 
     return;
 }

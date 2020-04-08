@@ -129,6 +129,14 @@ string DataHandler::sqlGet(string request){
         int temp = mySql.sqlGetTurnScoreLo(idPlayer);
         answer = to_string(temp);
     }
+    else if (strcmp(varGet, "playerGamesPlayed") == 0){
+        int temp = mySql.sqlGetGamesPlayed(idPlayer);
+        answer = to_string(temp);
+    }
+    else if (strcmp(varGet, "playerGamesWon") == 0){
+        int temp = mySql.sqlGetGamesWon(idPlayer);
+        answer = to_string(temp);
+    }
 
     return answer;
 }
