@@ -24,7 +24,7 @@ public:
     int sqlGetTurnScoreLo(int playerID);
 
     player sqlGetPlayer(int playerID1, int playerID2);
-    string* sqlGetPlayerList();
+    string sqlGetPlayerList();
     void sqlSetPlayerFinal(QString& playerID, player Player);
 private:
     QSqlDatabase m_db;

@@ -53,25 +53,40 @@ Widget::Widget(QWidget *parent)
             donut->setHoleSize(minSize + i * (maxSize - minSize) / donutCount);
             donut->setPieSize(minSize + (i + 1) * (maxSize - minSize) / donutCount);
             slice->setBorderColor(Qt::black);
-            slice->setBorderWidth(3);
-            if((i%2) == 0)
-            {
-                slice->setColor(Qt::green);
-            }
-            else
-            {
-                slice->setColor(Qt::red);
-            }
+            slice->setBorderWidth(2);
+            //Color the slices and the borders
             if(i == 4)
             {
                 slice->setLabelVisible(true);
+                //This is the outermost ring, so we need to disconnect it from the slot to make it unclickable
                 disconnect(slice, &QPieSlice::clicked, this, &Widget::addScore);
                 slice->setColor(Qt::white);
-                slice->setBorderWidth(5);
+                slice->setBorderWidth(3);
                 donut->setPieSize(donut->pieSize() * 0.93);
                 donut->setHoleSize(donut->holeSize() * 0.90);
             }
+            else
+            {
+                slice->setBorderColor(Qt::gray);
+            }
 
+            if(j % 2 == 0 && i % 2 == 0 && i != 4)
+            {
+                slice->setColor(Qt::red);
+                slice->setLabelColor(Qt::black);
+            }
+            else
+            {
+                if(i != 4)
+                {
+                    slice->setColor(Qt::black);
+                    slice->setLabelColor(Qt::white);
+                }
+            }
+            if(j % 2 != 0  && i % 2 == 1 && i != 4)
+            {
+                slice->setColor(Qt::red);
+            }
             //Set all of the sector point values on outer ring (just labels)
             if(j == 0)
             {
@@ -188,11 +203,11 @@ Widget::Widget(QWidget *parent)
     innerBullseye->setPieSize(minSize * (maxSize - minSize) / donutCount);
     QPieSlice *slice = new QPieSlice(QString("%1").arg(value), value);
     slice->setLabelVisible(false);
-    slice->setLabelColor(Qt::black);
+    slice->setLabelColor(Qt::white);
     slice->setLabelPosition(QPieSlice::LabelInsideHorizontal);
     connect(slice, &QPieSlice::clicked, this, &Widget::addScore);
-    slice->setColor(Qt::green);
-    slice->setBorderColor(Qt::green);
+    slice->setColor(Qt::black);
+    slice->setBorderColor(Qt::black);
     slice->setBorderWidth(5);
     innerBullseye->setHoleSize(0);
     innerBullseye->setPieSize(0.025);

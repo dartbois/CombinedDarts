@@ -9,8 +9,9 @@ StartupMenu::StartupMenu(QWidget *parent) :
     this->setWindowTitle("Startup Menu");
     manageChoiceMenu = new ManageChoiceMenu();
     dartboardWindow = new Widget();
-    scorerWindow = new ScorerView();
     audienceWindow = new AudienceView();
+    scorerWindow = new ScorerView(audienceWindow);
+
 }
 
 StartupMenu::~StartupMenu()

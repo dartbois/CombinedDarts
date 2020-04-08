@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1252</width>
-    <height>681</height>
+    <width>1251</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>143</x>
+     <x>140</x>
      <y>0</y>
      <width>20</width>
      <height>561</height>
@@ -34,7 +34,7 @@
     <rect>
      <x>0</x>
      <y>550</y>
-     <width>1261</width>
+     <width>1251</width>
      <height>20</height>
     </rect>
    </property>
@@ -51,7 +51,7 @@
      <x>150</x>
      <y>110</y>
      <width>201</width>
-     <height>16</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="midLineWidth">
@@ -223,7 +223,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Display : &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton">
+  <widget class="QCheckBox" name="PlayerOneStats">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -236,7 +236,7 @@
     <string>P1 Stats</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2">
+  <widget class="QCheckBox" name="PlayerTwoStats">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -249,7 +249,7 @@
     <string>P2 Stats</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_3">
+  <widget class="QCheckBox" name="PlayerOneAndPlayerTwoStats">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -262,7 +262,7 @@
     <string>Both Stats</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_4">
+  <widget class="QCheckBox" name="CurrentPlayerStats">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -275,7 +275,7 @@
     <string>Current Player</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="NumberOf180s">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -288,7 +288,7 @@
     <string>180's</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_2">
+  <widget class="QCheckBox" name="WinPercentages">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -301,7 +301,7 @@
     <string>Wins%</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_3">
+  <widget class="QCheckBox" name="PersonalStats">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -314,7 +314,7 @@
     <string>Pesonal Stats</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_4">
+  <widget class="QCheckBox" name="MatchStats">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -327,7 +327,7 @@
     <string>Match</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_5">
+  <widget class="QCheckBox" name="RankedStats">
    <property name="geometry">
     <rect>
      <x>250</x>
@@ -395,6 +395,34 @@
     <string>Finish Match</string>
    </property>
   </widget>
+  <zorder>line_2</zorder>
+  <zorder>line_3</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>line_5</zorder>
+  <zorder>tableWidget</zorder>
+  <zorder>line_7</zorder>
+  <zorder>label_4</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>pushButton_2</zorder>
+  <zorder>label_5</zorder>
+  <zorder>PlayerOneStats</zorder>
+  <zorder>PlayerTwoStats</zorder>
+  <zorder>PlayerOneAndPlayerTwoStats</zorder>
+  <zorder>CurrentPlayerStats</zorder>
+  <zorder>NumberOf180s</zorder>
+  <zorder>WinPercentages</zorder>
+  <zorder>PersonalStats</zorder>
+  <zorder>MatchStats</zorder>
+  <zorder>RankedStats</zorder>
+  <zorder>line_8</zorder>
+  <zorder>label_6</zorder>
+  <zorder>pushButton_3</zorder>
+  <zorder>pushButton_4</zorder>
+  <zorder>line_4</zorder>
+  <zorder>line</zorder>
+  <zorder>line_6</zorder>
  </widget>
  <resources/>
  <connections/>

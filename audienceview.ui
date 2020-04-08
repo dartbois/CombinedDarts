@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1260</width>
-    <height>686</height>
+    <width>1384</width>
+    <height>834</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>90</y>
-     <width>1071</width>
+     <width>1081</width>
      <height>20</height>
     </rect>
    </property>
@@ -33,9 +33,9 @@
    <property name="geometry">
     <rect>
      <x>1070</x>
-     <y>10</y>
+     <y>0</y>
      <width>20</width>
-     <height>671</height>
+     <height>491</height>
     </rect>
    </property>
    <property name="midLineWidth">
@@ -48,9 +48,9 @@
   <widget class="Line" name="line_3">
    <property name="geometry">
     <rect>
-     <x>7</x>
-     <y>580</y>
-     <width>1241</width>
+     <x>0</x>
+     <y>480</y>
+     <width>1261</width>
      <height>20</height>
     </rect>
    </property>
@@ -64,20 +64,20 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>261</width>
+     <x>10</x>
+     <y>20</y>
+     <width>131</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#aa0000;&quot;&gt;Win Predictions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#aa0000;&quot;&gt;Win Predictions:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="Line" name="line_4">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>180</x>
      <y>20</y>
      <width>21</width>
      <height>61</height>
@@ -96,10 +96,10 @@
   <widget class="Line" name="line_5">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>220</x>
      <y>40</y>
-     <width>501</width>
-     <height>16</height>
+     <width>511</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="midLineWidth">
@@ -114,8 +114,8 @@
     <rect>
      <x>1080</x>
      <y>0</y>
-     <width>171</width>
-     <height>591</height>
+     <width>311</width>
+     <height>491</height>
     </rect>
    </property>
   </widget>
@@ -138,7 +138,7 @@
      <x>140</x>
      <y>100</y>
      <width>20</width>
-     <height>491</height>
+     <height>391</height>
     </rect>
    </property>
    <property name="midLineWidth">
@@ -148,7 +148,7 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="MainStatsLable">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -161,6 +161,159 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Stats :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
+  <widget class="QLabel" name="StatisticsDisplay">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>530</y>
+     <width>191</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Player2Stats">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>710</y>
+     <width>191</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="WinPercentages">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>700</y>
+     <width>241</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="CurrentPlayer">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>710</y>
+     <width>241</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="NumberOf180s">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>530</y>
+     <width>241</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="PersonalStats">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>610</y>
+     <width>261</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="MatchStats">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>610</y>
+     <width>261</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RankedStats">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>520</y>
+     <width>261</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="BothP1AndP2Stats">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>610</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>1030</x>
+     <y>550</y>
+     <width>351</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../../../../Pictures/RaidLOGO.PNG</pixmap>
+   </property>
+  </widget>
+  <zorder>BothP1AndP2Stats</zorder>
+  <zorder>line</zorder>
+  <zorder>label</zorder>
+  <zorder>line_4</zorder>
+  <zorder>line_5</zorder>
+  <zorder>tableWidget</zorder>
+  <zorder>label_2</zorder>
+  <zorder>line_6</zorder>
+  <zorder>MainStatsLable</zorder>
+  <zorder>StatisticsDisplay</zorder>
+  <zorder>Player2Stats</zorder>
+  <zorder>WinPercentages</zorder>
+  <zorder>CurrentPlayer</zorder>
+  <zorder>NumberOf180s</zorder>
+  <zorder>line_2</zorder>
+  <zorder>PersonalStats</zorder>
+  <zorder>MatchStats</zorder>
+  <zorder>RankedStats</zorder>
+  <zorder>label_3</zorder>
+  <zorder>line_3</zorder>
  </widget>
  <resources/>
  <connections/>

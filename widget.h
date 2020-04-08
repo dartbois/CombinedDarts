@@ -1,6 +1,6 @@
 #ifndef WIDGET_H
 #define WIDGET_H
-
+#pragma once
 #include <QtWidgets/QWidget>
 #include <QtCharts/QPieSeries>
 #include <QLabel>
@@ -14,13 +14,13 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = 0);
     ~Widget();
-
+    int score = 0;
 public slots:
     void addScore();
 
 private:
     QList<QPieSeries *> m_donuts;
-    int score = 0;
+
     QLabel *scoreDisplayer;
 };
 
