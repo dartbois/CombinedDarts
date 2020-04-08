@@ -1,5 +1,6 @@
 #include "datahandler.h"
 #include <cstring>
+#include "sqlhandler.h"
 
 using namespace std;
 
@@ -74,13 +75,61 @@ string DataHandler::setData(string request) {
 }
 
 string DataHandler::sqlGet(string request){
-    return NULL;
+    //playerid:variable
+    char requestHandler[65];
+    char idHandler[10];
+    char varGet[50];
+    int idPlayer;
+    string answer;
+    sqlHandler mySql("./db/DartLeague.db");
+
+    strcpy(requestHandler, request.c_str());
+    strcpy(idHandler, strtok(requestHandler, ":"));
+    strcpy(varGet, strtok(requestHandler, "\0\n"));
+    idPlayer = stoi(idHandler);
+
+    if (strcmp(varGet, "playerFirst")){
+        answer = mySql.sqlGetFirstName(idPlayer);
+    }
+    else if (strcmp(varGet, "playerLast")){
+        answer = mySql.sqlGetLastName(idPlayer);
+    }
+    else if (strcmp(varGet, "playerHometown")){
+        answer = mySql.sqlGetHometown(idPlayer);
+    }
+    else if (strcmp(varGet, "playerRanking")){
+        answer = mySql.sqlGetRanking(idPlayer);
+    }
+    else if (strcmp(varGet, "playerAvg180s")){
+        answer = mySql.sqlGetAvg180s(idPlayer);
+    }
+    else if (strcmp(varGet, "playerAvg180Season")){
+        answer = mySql.sqlGetAvg180sSeason(idPlayer);
+    }
+    else if (strcmp(varGet, "playerLastWin")){
+        answer = mySql.sqlGetLastGameWin(idPlayer);
+    }
+    else if(strcmp(varGet, "playerAvgThrow")){
+        answer = mySql.sqlGetAvgThrowScore(idPlayer);
+    }
+    else if(strcmp(varGet, "playerAvgThrowSeason")){
+        answer = mySql.sqlGetAvgThrowScoreSeason(idPlayer);
+    }
+    else if(strcmp(varGet, "playerTurnScoreHi")){
+        answer = mySql.sqlGetTurnScoreHi(idPlayer);
+    }
+    else if (strcmp(varGet, "playerTurnScoreLo")){
+        answer = mySql.sqlGetTurnScoreLo(idPlayer);
+    }
+
+    return answer;
 }
 string DataHandler::mathcGet(string request){
     return NULL;
 }
-string DataHandler::playerGet(string request){
-    return NULL;
+string DataHandler::playerGet(string request, player myPlayer){
+    string answer = myPlayer.dataGet(request);
+    return answer;
 }
 string DataHandler::matchstartGet(string request){
     return NULL;

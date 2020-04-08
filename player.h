@@ -7,7 +7,7 @@ using namespace std;
 class player
 {
 public:
-    player();
+    player(int playerID, int playerID2);
     int playerMatch180s[2];
     string playerFirst[2];
     string playerLast[2];
@@ -20,6 +20,7 @@ public:
     float playerAvgThrowSeason[2];
     int playerTurnScoreHi[2];
     int playerTurnScoreLo[2];
+    string dataGet(string request);
 
 };
 
