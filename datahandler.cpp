@@ -81,62 +81,91 @@ string DataHandler::sqlGet(string request){
     char requestHandler[65] = {'\0'};
     char idHandler[10] = {'\0'};
     char varGet[50] = {'\0'};
-    int idPlayer;
+    int id;
     string answer;
     sqlHandler mySql("C:\\Users\\Cassidy\\Documents\\School\\SeniorDesign\\CombinedDarts-master\\DartLeague.db");
 
     strcpy(requestHandler, request.c_str());
     strcpy(idHandler, strtok(requestHandler, ":"));
     strcpy(varGet, strtok(NULL, "\0"));
-    idPlayer = stoi(idHandler);
+    id = stoi(idHandler);
 
     if (strcmp(varGet, "playerFirst") == 0){
-        answer = mySql.sqlGetFirstName(idPlayer);
+        answer = mySql.sqlGetFirstName(id);
     }
     else if (strcmp(varGet, "playerLast") == 0){
-        answer = mySql.sqlGetLastName(idPlayer);
+        answer = mySql.sqlGetLastName(id);
     }
     else if (strcmp(varGet, "playerHometown") == 0){
-        answer = mySql.sqlGetHometown(idPlayer);
+        answer = mySql.sqlGetHometown(id);
     }
     else if (strcmp(varGet, "playerRanking") == 0){
-        int temp = mySql.sqlGetRanking(idPlayer);
+        int temp = mySql.sqlGetRanking(id);
         answer = to_string(temp);
     }
     else if (strcmp(varGet, "playerAvg180s") == 0){
-        float temp = mySql.sqlGetAvg180s(idPlayer);
+        float temp = mySql.sqlGetAvg180s(id);
         answer = to_string(temp);
     }
     else if (strcmp(varGet, "playerAvg180Season") == 0){
-        float temp = mySql.sqlGetAvg180sSeason(idPlayer);
+        float temp = mySql.sqlGetAvg180sSeason(id);
         answer = to_string(temp);
     }
     else if (strcmp(varGet, "playerLastWin") == 0){
-        int temp = mySql.sqlGetLastGameWin(idPlayer);
+        int temp = mySql.sqlGetLastGameWin(id);
         answer = to_string(temp);
     }
     else if(strcmp(varGet, "playerAvgThrow") == 0){
-        float temp = mySql.sqlGetAvgThrowScore(idPlayer);
+        float temp = mySql.sqlGetAvgThrowScore(id);
         answer = to_string(temp);
     }
     else if(strcmp(varGet, "playerAvgThrowSeason") == 0){
-        float temp = mySql.sqlGetAvgThrowScoreSeason(idPlayer);
+        float temp = mySql.sqlGetAvgThrowScoreSeason(id);
         answer = to_string(temp);
     }
     else if(strcmp(varGet, "playerTurnScoreHi") == 0){
-        int temp = mySql.sqlGetTurnScoreHi(idPlayer);
+        int temp = mySql.sqlGetTurnScoreHi(id);
         answer = to_string(temp);
     }
     else if (strcmp(varGet, "playerTurnScoreLo") == 0){
-        int temp = mySql.sqlGetTurnScoreLo(idPlayer);
+        int temp = mySql.sqlGetTurnScoreLo(id);
         answer = to_string(temp);
     }
     else if (strcmp(varGet, "playerGamesPlayed") == 0){
-        int temp = mySql.sqlGetGamesPlayed(idPlayer);
+        int temp = mySql.sqlGetGamesPlayed(id);
         answer = to_string(temp);
     }
     else if (strcmp(varGet, "playerGamesWon") == 0){
-        int temp = mySql.sqlGetGamesWon(idPlayer);
+        int temp = mySql.sqlGetGamesWon(id);
+        answer = to_string(temp);
+    }
+    else if (strcmp(varGet, "gameName") == 0){
+        answer = mySql.sqlGetGameName(id);
+    }
+    else if (strcmp(varGet, "gameDate") == 0){
+        answer = mySql.sqlGetGameDate(id);
+    }
+    else if (strcmp(varGet, "gameLocation") == 0){
+        answer = mySql.sqlGetGameLocation(id);
+    }
+    else if (strcmp(varGet, "gameStartScore") == 0){
+        int temp = mySql.sqlGetGameStartScore(id);
+        answer = to_string(temp);
+    }
+    else if (strcmp(varGet, "gameMatches") == 0){
+        int temp = mySql.sqlGetGameMatches(id);
+        answer = to_string(temp);
+    }
+    else if (strcmp(varGet, "gameLegs") == 0){
+        int temp = mySql.sqlGetGameLegs(id);
+        answer = to_string(temp);
+    }
+    else if (strcmp(varGet, "gameP1") == 0){
+        int temp = mySql.sqlGetGameP1(id);
+        answer = to_string(temp);
+    }
+    else if (strcmp(varGet, "gameP2") == 0){
+        int temp = mySql.sqlGetGameP2(id);
         answer = to_string(temp);
     }
 

@@ -64,11 +64,17 @@ player::player(int playerID, int playerID2)
     playerGamesWon[1] = stoi(myD.sqlGet(req));
 
 
-    //In-Game or Calculated Variables
+    //Calculated Variables
     playerWinPercent[0] = (playerGamesWon[0] / playerGamesPlayed[0]) * 100;
     playerWinPercent[1] = (playerGamesWon[1] / playerGamesPlayed[1]) * 100;
+
+    //In-Game Variables
     playerMatch180s[0] = 0;
     playerMatch180s[1] = 0;
+    playerLegsWon[0] = 0;
+    playerLegsWon[1] = 0;
+    playerMatchesWon[0] = 0;
+    playerMatchesWon[1] = 0;
 
 
     return;
@@ -78,59 +84,109 @@ player::player(int playerID, int playerID2)
 
 string player::dataGet(string request) {
     string myAns;
-    if (request == "leagueRank0"){
+
+    if (request == "playerFirst0"){
+        myAns = this->playerFirst[0];
+    }
+    else if (request == "playerFirst1"){
+        myAns = this->playerFirst[1];
+    }
+    else if (request == "playerLast0"){
+        myAns = this->playerLast[0];
+    }
+    else if (request == "playerLast1"){
+        myAns = this->playerLast[1];
+    }
+    else if (request == "playerHometown0"){
+        myAns = this->playerHometown[0];
+    }
+    else if (request == "playerHometown1"){
+        myAns = this->playerHometown[1];
+    }
+    else if (request == "leagueRank0"){
         myAns = to_string(this->playerRanking[0]);
     }
     else if (request == "leagueRank1"){
         myAns = to_string(this->playerRanking[1]);
     }
-    else if (request == "playerAvgThrowSeason0"){
-        myAns = to_string(this->playerAvgThrowSeason[0]);
-    }
-    else if (request == "playerAvgThrow0"){
-        myAns = to_string(this->playerAvgThrow[0]);
-    }
-    else if (request == "playerMatch180s0"){
-        myAns = to_string(this->playerMatch180s[0]);
-    }
-    else if (request == "playerAvg180Season0"){
-        myAns = to_string(this->playerAvg180Season[0]);
-    }
     else if (request == "playerAvg180s0"){
         myAns = to_string(this->playerAvg180s[0]);
-    }
-    else if (request == "playerHometown0"){
-        myAns = this->playerHometown[0];
-    }
-    else if (request == "playerFirst0"){
-        myAns = this->playerFirst[0];
-    }
-    else if (request == "playerLast0"){
-        myAns = this->playerLast[0];
-    }
-    else if (request == "playerAvgThrowSeason1"){
-        myAns = to_string(this->playerAvgThrowSeason[1]);
-    }
-    else if (request == "playerAvgThrow1"){
-        myAns = to_string(this->playerAvgThrow[1]);
-    }
-    else if (request == "180sMatch1"){
-        myAns = to_string(this->playerMatch180s[1]);
-    }
-    else if (request == "playerAvg180Season1"){
-        myAns = to_string(this->playerAvg180Season[1]);
     }
     else if (request == "playerAvg180s1"){
         myAns = to_string(this->playerAvg180s[1]);
     }
-    else if (request == "playerHometown1"){
-        myAns = this->playerHometown[1];
+    else if (request == "playerAvg180Season0"){
+        myAns = to_string(this->playerAvg180Season[0]);
     }
-    else if (request == "playerFirst1"){
-        myAns = this->playerFirst[1];
+    else if (request == "playerAvg180Season1"){
+        myAns = to_string(this->playerAvg180Season[1]);
     }
-    else if (request == "playerLast1"){
-        myAns = this->playerLast[1];
+    else if (request == "playerAvgThrow0"){
+        myAns = to_string(this->playerAvgThrow[0]);
     }
+    else if (request == "playerAvgThrow1"){
+        myAns = to_string(this->playerAvgThrow[1]);
+    }
+    else if (request == "playerAvgThrowSeason0"){
+        myAns = to_string(this->playerAvgThrowSeason[0]);
+    }
+    else if (request == "playerAvgThrowSeason1"){
+        myAns = to_string(this->playerAvgThrowSeason[1]);
+    }
+    else if (request == "playerMatch180s0"){
+        myAns = to_string(this->playerMatch180s[0]);
+    }
+    else if (request == "playerMatch180s1"){
+        myAns = to_string(this->playerMatch180s[1]);
+    }
+    else if (request == "playerLastWin0"){
+        myAns = to_string(this->playerLastWin[0]);
+    }
+    else if (request == "playerLastWin1"){
+        myAns = to_string(this->playerLastWin[1]);
+    }
+    else if (request == "playerTurnScoreHi0"){
+        myAns = to_string(this->playerTurnScoreHi[0]);
+    }
+    else if (request == "playerTurnScoreHi1"){
+        myAns = to_string(this->playerTurnScoreHi[1]);
+    }
+    else if (request == "playerTurnScoreLo0"){
+        myAns = to_string(this->playerTurnScoreLo[0]);
+    }
+    else if (request == "playerTurnScoreLo1"){
+        myAns = to_string(this->playerTurnScoreLo[1]);
+    }
+    else if (request == "playerGamesPlayed0"){
+        myAns = to_string(this->playerGamesPlayed[0]);
+    }
+    else if (request == "playerGamesPlayed1"){
+        myAns = to_string(this->playerGamesPlayed[1]);
+    }
+    else if (request == "playerGamesWon0"){
+        myAns = to_string(this->playerGamesWon[0]);
+    }
+    else if (request == "playerGamesWon1"){
+        myAns = to_string(this->playerGamesWon[1]);
+    }
+    else if (request == "playerWinPercent0"){
+        myAns = to_string(this->playerWinPercent[0]);
+    }
+    else if (request == "playerWinPercent"){
+        myAns = to_string(this->playerWinPercent[1]);
+    }
+    else if (request == "playerMatchesWon0"){
+        myAns = to_string(this->playerMatchesWon[0]);
+    }
+    else if (request == "playerMatchesWon1"){
+        myAns = to_string(this->playerMatchesWon[1]);
+    }
+    else if (request == "playerLegsWon0"){
+        myAns = to_string(this->playerLegsWon[0]);
+    }
+    else if (request == "playerLegsWon1"){
+        myAns = to_string(this->playerLegsWon[1]);
+    }
+
     return myAns;
 }
