@@ -27,7 +27,7 @@ sqlHandler::sqlHandler(const QString& path) {
 }
 
 void sqlHandler::sqlCloseConnection(){
-    dartdb.close();
+    QSqlDatabase::removeDatabase(QSqlDatabase::defaultConnection);
     return;
 }
 
@@ -155,7 +155,6 @@ int sqlHandler::sqlGetTurnScoreHi(int playerID){
 
 int sqlHandler::sqlGetTurnScoreLo(int playerID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Turn Score Low] FROM players WHERE [Player ID] = ?");
     query.bindValue(0, playerID);
@@ -168,7 +167,6 @@ int sqlHandler::sqlGetTurnScoreLo(int playerID){
 
 int sqlHandler::sqlGetGamesPlayed(int playerID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Num Games Played] FROM players WHERE [Player ID] = ?");
     query.bindValue(0, playerID);
@@ -181,7 +179,6 @@ int sqlHandler::sqlGetGamesPlayed(int playerID){
 
 int sqlHandler::sqlGetGamesWon(int playerID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Num Games Won] FROM players WHERE [Player ID] = ?");
     query.bindValue(0, playerID);
@@ -195,7 +192,6 @@ int sqlHandler::sqlGetGamesWon(int playerID){
 //Getters: used to get individual game information from db
 string sqlHandler::sqlGetGameName(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Game Name] FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -208,7 +204,6 @@ string sqlHandler::sqlGetGameName(int gameID){
 
 string sqlHandler::sqlGetGameDate(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT Date FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -221,7 +216,6 @@ string sqlHandler::sqlGetGameDate(int gameID){
 
 string sqlHandler::sqlGetGameLocation(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT Location FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -234,7 +228,6 @@ string sqlHandler::sqlGetGameLocation(int gameID){
 
 int sqlHandler::sqlGetGameStartScore(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Start Score] FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -247,7 +240,6 @@ int sqlHandler::sqlGetGameStartScore(int gameID){
 
 int sqlHandler::sqlGetGameMatches(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Max # Matches] FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -260,7 +252,6 @@ int sqlHandler::sqlGetGameMatches(int gameID){
 
 int sqlHandler::sqlGetGameLegs(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT [Max # Legs] FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -273,7 +264,6 @@ int sqlHandler::sqlGetGameLegs(int gameID){
 
 int sqlHandler::sqlGetGameP1(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT Player1 FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);
@@ -286,7 +276,6 @@ int sqlHandler::sqlGetGameP1(int gameID){
 
 int sqlHandler::sqlGetGameP2(int gameID){
     QSqlQuery query;
-    QString querystring;
 
     query.prepare("SELECT Player2 FROM Games WHERE [Game ID] = ?");
     query.bindValue(0, gameID);

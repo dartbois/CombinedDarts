@@ -11,6 +11,8 @@ AudienceView::AudienceView(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Audience View");
+    this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
+
 
     QString Stats = "                                 ";
     StatisticsDisplay = ui->StatisticsDisplay;
@@ -77,102 +79,100 @@ void AudienceView::on_RankedStats_linkActivated(const QString &link)
 
 void AudienceView::setPlayerOneStatsText()
 {
-    DataHandler myD;
-    player myP(1,3);
+        DataHandler myD;
+        player myP(1,3);
 
-    QString stats;
-    QString statsName, statsHome, statsRank, statsAvg180s;
-    QString temp2;
+        QString stats;
+        QString statsName, statsHome, statsRank, statsAvg180s;
+        QString temp2;
 
-    statsName = "Name: ";
-    string temp = myP.playerFirst[0];
-    temp2 = QString::fromStdString(temp);
-    statsName.append(temp2);
-    statsName.append(" ");
-    temp = myP.playerLast[0];
-    temp2 = QString::fromStdString(temp);
-    statsName.append(temp2);
-    statsName.append("\n");
+        statsName = "Name: ";
+        string temp = myP.playerFirst[0];
+        temp2 = QString::fromStdString(temp);
+        statsName.append(temp2);
+        statsName.append(" ");
+        temp = myP.playerLast[0];
+        temp2 = QString::fromStdString(temp);
+        statsName.append(temp2);
+        statsName.append("\n");
 
-    statsHome = "Hometown: ";
-    temp = myP.playerHometown[0];
-    temp2 = QString::fromStdString(temp);
-    statsHome.append(temp2);
-    statsHome.append("\n");
+        statsHome = "Hometown: ";
+        temp = myP.playerHometown[0];
+        temp2 = QString::fromStdString(temp);
+        statsHome.append(temp2);
+        statsHome.append("\n");
 
-    statsRank = "League Rank: ";
-    int tempInt = myP.playerRanking[0];
-    temp2 = QString::number(tempInt);
-    statsRank.append(temp2);
-    statsRank.append("\n");
+        statsRank = "League Rank: ";
+        int tempInt = myP.playerRanking[0];
+        temp2 = QString::number(tempInt);
+        statsRank.append(temp2);
+        statsRank.append("\n");
 
-    statsAvg180s = "Average 180s per Match: ";
-    float tempFloat = myP.playerAvg180s[0];
-    temp2 = QString::number(tempFloat);
-    statsAvg180s.append(temp2);
-    statsAvg180s.append("\n");
+        statsAvg180s = "Average 180s per Match: ";
+        float tempFloat = myP.playerAvg180s[0];
+        temp2 = QString::number(tempFloat);
+        statsAvg180s.append(temp2);
+        statsAvg180s.append("\n");
 
-    stats = "";
-    stats.append(statsName);
-    stats.append(statsHome);
-    stats.append(statsRank);
-    stats.append(statsAvg180s);
+        stats = "";
+        stats.append(statsName);
+        stats.append(statsHome);
+        stats.append(statsRank);
+        stats.append(statsAvg180s);
 
-    ui->StatisticsDisplay->setText(stats);
+        ui->StatisticsDisplay->setText(stats);
 }
 
 void AudienceView::setPlayerTwoStatsText()
 {
-    DataHandler myD;
-    player myP(1,3);
+        DataHandler myD;
+        player myP(1,3);
 
-    QString stats;
-    QString statsName, statsHome, statsRank, statsAvg180s;
-    QString temp2;
+        QString stats;
+        QString statsName, statsHome, statsRank, statsAvg180s;
+        QString temp2;
 
-    statsName = "Name: ";
-    string temp = myP.playerFirst[1];
-    temp2 = QString::fromStdString(temp);
-    statsName.append(temp2);
-    statsName.append(" ");
-    temp = myP.playerLast[1];
-    temp2 = QString::fromStdString(temp);
-    statsName.append(temp2);
-    statsName.append("\n");
+        statsName = "Name: ";
+        string temp = myP.playerFirst[1];
+        temp2 = QString::fromStdString(temp);
+        statsName.append(temp2);
+        statsName.append(" ");
+        temp = myP.playerLast[1];
+        temp2 = QString::fromStdString(temp);
+        statsName.append(temp2);
+        statsName.append("\n");
 
-    statsHome = "Hometown: ";
-    temp = myP.playerHometown[1];
-    temp2 = QString::fromStdString(temp);
-    statsHome.append(temp2);
-    statsHome.append("\n");
+        statsHome = "Hometown: ";
+        temp = myP.playerHometown[1];
+        temp2 = QString::fromStdString(temp);
+        statsHome.append(temp2);
+        statsHome.append("\n");
 
-    statsRank = "League Rank: ";
-    int tempInt = myP.playerRanking[1];
-    temp2 = QString::number(tempInt);
-    statsRank.append(temp2);
-    statsRank.append("\n");
+        statsRank = "League Rank: ";
+        int tempInt = myP.playerRanking[1];
+        temp2 = QString::number(tempInt);
+        statsRank.append(temp2);
+        statsRank.append("\n");
 
-    statsAvg180s = "Average 180s per Match: ";
-    float tempFloat = myP.playerAvg180s[1];
-    temp2 = QString::number(tempFloat);
-    statsAvg180s.append(temp2);
-    statsAvg180s.append("\n");
+        statsAvg180s = "Average 180s per Match: ";
+        float tempFloat = myP.playerAvg180s[1];
+        temp2 = QString::number(tempFloat);
+        statsAvg180s.append(temp2);
+        statsAvg180s.append("\n");
 
-    stats = "";
-    stats.append(statsName);
-    stats.append(statsHome);
-    stats.append(statsRank);
-    stats.append(statsAvg180s);
+        stats = "";
+        stats.append(statsName);
+        stats.append(statsHome);
+        stats.append(statsRank);
+        stats.append(statsAvg180s);
 
 
-    ui->Player2Stats->setText(stats);
+        ui->Player2Stats->setText(stats);
 }
 
 void AudienceView::setBothP1AndP2StatsText()
 {
-    setPlayerOneStatsText();
-    setPlayerTwoStatsText();
-    //ui->BothP1AndP2Stats->setText("Player One and Player Two Statistics : ");
+    ui->BothP1AndP2Stats->setText("Player One and Player Two Statistics : ");
 }
 
 void AudienceView::setCurrentPlayerText()
@@ -202,7 +202,7 @@ void AudienceView::setMatchStatsText()
 
 void AudienceView::setRankedStatsText()
 {
-    ui->RankedStats->setText("Ranked Statistics: ");
+    ui->RankedStats->setText("Ranked Statistics : ");
 }
 
 void AudienceView::undoRankedText()         //Experimental
@@ -222,8 +222,7 @@ void AudienceView::undoPlayerTwoStatsText()
 
 void AudienceView::undoBothP1AndP2StatsText()
 {
-    ui->StatisticsDisplay->clear();
-    ui->Player2Stats->clear();
+    ui->BothP1AndP2Stats->clear();
 }
 void AudienceView::undoCurrentPlayerText()
 {

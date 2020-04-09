@@ -55,6 +55,7 @@ player::player(int playerID, int playerID2)
     req = id2 + ":playerTurnScoreLo";
     playerTurnScoreLo[1] = stoi(myD.sqlGet(req));
     req = id1 + ":playerGamesPlayed";
+    //
     playerGamesPlayed[0] = stoi(myD.sqlGet(req));
     req = id2 + ":playerGamesPlayed";
     playerGamesPlayed[1] = stoi(myD.sqlGet(req));
