@@ -10,6 +10,8 @@ class sqlHandler
 {
 public:
     sqlHandler(const QString& path);
+    void sqlCloseConnection();
+    QSqlDatabase dartdb;
 
     string sqlGetFirstName(int playerID);
     string sqlGetLastName(int playerID);
@@ -35,7 +37,10 @@ public:
     int sqlGetGameP2(int gameID);
 
     player sqlGetPlayer(int playerID1, int playerID2);
+
     string sqlGetPlayerList();
+    string sqlGetGameList();
+
     void sqlSetPlayerFinal(QString& playerID, player Player);
 private:
     QSqlDatabase m_db;

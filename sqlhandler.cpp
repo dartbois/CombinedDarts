@@ -23,14 +23,12 @@ sqlHandler::sqlHandler(const QString& path) {
        failFlag = true;
        printf("dartdb failed to open");
     }
-    else{
-        //Create tables
-        //TODO: make sure tables don't exist before we create new ones
-        //QSqlQuery query("CREATE TABLE players ([Player ID] INTEGER NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT, [First Name] STRING NOT NULL, [Last Name] STRING NOT NULL, Hometown STRING NOT NULL, Ranking INTEGER NOT NULL UNIQUE, [Avg 180s] REAL, [Avg 180s (Season)] REAL, [Last Game Win] INTEGER REFERENCES Games ([Game ID]), [Avg Throw Score] REAL, [Avg Throw Score (Season)] REAL, [Turn Score High] INTEGER, [Turn Score Low] INTEGER);");
-        //QSqlQuery query2("CREATE TABLE games ([Game ID] INTEGER UNIQUE NOT NULL PRIMARY KEY AUTOINCREMENT, [Game Name] STRING NOT NULL UNIQUE, Date DATE NOT NULL, Location STRING NOT NULL, [Start Score] INTEGER DEFAULT (501) NOT NULL, [Max # Legs] INTEGER NOT NULL, Player1 INTEGER NOT NULL REFERENCES players ([Player ID]), Player2 INTEGER NOT NULL REFERENCES players ([Player ID]), Winner INTEGER REFERENCES players ([Player ID]));");
-        //query.exec();
-        //query2.exec();
-    }
+
+}
+
+void sqlHandler::sqlCloseConnection(){
+    dartdb.close();
+    return;
 }
 
 
@@ -194,24 +192,6 @@ int sqlHandler::sqlGetGamesWon(int playerID){
     return query.value(0).toInt();
 }
 
-//Getter: needs to get all player information from SQLite (for populating lists)
-string sqlHandler::sqlGetPlayerList() {
-    QSqlQuery query;
-    string temp;
-    string playerInfoLine = "";
-
-    query.prepare("SELECT [Player ID], [First Name], [Last Name], [Hometown], [Ranking], [Num Games Won] FROM players");
-    query.exec();
-
-    while (query.next()){
-        temp = query.value(0).toString().toStdString();
-        playerInfoLine.append(temp);
-        playerInfoLine.append("\n");
-    }
-
-    return playerInfoLine;
-}
-
 //Getters: used to get individual game information from db
 string sqlHandler::sqlGetGameName(int gameID){
     QSqlQuery query;
@@ -317,7 +297,40 @@ int sqlHandler::sqlGetGameP2(int gameID){
     return query.value(0).toInt();
 }
 
+//Getter: needs to get all player information from SQLite (for populating lists)
+string sqlHandler::sqlGetPlayerList() {
+    QSqlQuery query;
+    string temp;
+    string playerInfoLine = "";
 
+    query.prepare("SELECT [Player ID], [First Name], [Last Name], [Hometown], [Ranking], [Num Games Won] FROM players");
+    query.exec();
+
+    while (query.next()){
+        temp = query.value(0).toString().toStdString();
+        playerInfoLine.append(temp);
+        playerInfoLine.append("\n");
+    }
+
+    return playerInfoLine;
+}
+
+string sqlHandler::sqlGetGameList() {
+    QSqlQuery query;
+    string temp;
+    string gameInfoLine = "";
+
+    query.prepare("SELECT [Game ID], [Game Name], Date, Location, Player1, Player2 FROM games");
+    query.exec();
+
+    while (query.next()){
+        temp = query.value(0).toString().toStdString();
+        gameInfoLine.append(temp);
+        gameInfoLine.append("\n");
+    }
+
+    return gameInfoLine;
+}
 
 //Setter: needs to set final player info into SQLite
 void sqlHandler::sqlSetPlayerFinal(QString& playerID, player Player) {

@@ -164,6 +164,7 @@ void AudienceView::setPlayerTwoStatsText()
     stats.append(statsRank);
     stats.append(statsAvg180s);
 
+
     ui->Player2Stats->setText(stats);
 }
 

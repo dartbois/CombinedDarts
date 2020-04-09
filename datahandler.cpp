@@ -169,6 +169,8 @@ string DataHandler::sqlGet(string request){
         answer = to_string(temp);
     }
 
+    mySql.sqlCloseConnection();
+
     return answer;
 }
 string DataHandler::mathcGet(string request, mathClass myM){

@@ -65,8 +65,18 @@ player::player(int playerID, int playerID2)
 
 
     //Calculated Variables
-    playerWinPercent[0] = (playerGamesWon[0] / playerGamesPlayed[0]) * 100;
-    playerWinPercent[1] = (playerGamesWon[1] / playerGamesPlayed[1]) * 100;
+    if (playerGamesPlayed[0] != 0){
+        playerWinPercent[0] = (playerGamesWon[0] / playerGamesPlayed[0]) * 100;
+    }
+    else{
+        playerWinPercent[0] = 0;
+    }
+    if (playerGamesPlayed[1] != 0){
+        playerWinPercent[1] = (playerGamesWon[1] / playerGamesPlayed[1]) * 100;
+    }
+    else{
+        playerWinPercent[1] = 0;
+    }
 
     //In-Game Variables
     playerMatch180s[0] = 0;
