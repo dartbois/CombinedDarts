@@ -12,6 +12,7 @@ StartupMenu::StartupMenu(QWidget *parent) :
     audienceWindow = new AudienceView();
     scorerWindow = new ScorerView(audienceWindow);
     dartboardWindow = new Widget();
+    gameSelectionMenu = new GameSelectionMenu();
 }
 
 StartupMenu::~StartupMenu()
@@ -40,7 +41,7 @@ void StartupMenu::changeWindow()
 
 void StartupMenu::on_GameButton_clicked()
 {
-    scorerWindow->show();
-    audienceWindow->show();
+    gameSelectionMenu -> show();
+
     this->hide();
 }

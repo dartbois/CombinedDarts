@@ -33,7 +33,8 @@ SOURCES += \
     startupmenu.cpp \
     audienceview.cpp \
     scorerview.cpp \
-    widget.cpp
+    widget.cpp \
+    gameselectionmenu.cpp
 
 INSTALLS += target
 
@@ -44,6 +45,7 @@ FORMS += \
     startupmenu.ui \
     audienceview.ui \
     scorerview.ui \
+    gameselectionmenu.ui
 
 HEADERS += \
     datahandler.h \
@@ -57,7 +59,8 @@ HEADERS += \
     startupmenu.h \
     audienceview.h \
     scorerview.h \
-    widget.h
+    widget.h \
+    gameselectionmenu.h
 
 
 

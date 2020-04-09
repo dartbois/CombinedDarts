@@ -8,6 +8,7 @@
 #include "widget.h"
 #include "scorerview.h"
 #include "audienceview.h"
+#include "gameselectionmenu.h"
 
 namespace Ui {
 class StartupMenu;
@@ -30,6 +31,7 @@ private:
     Ui::StartupMenu *ui;
     ManageChoiceMenu* manageChoiceMenu;
     Widget* dartboardWindow;
+    GameSelectionMenu* gameSelectionMenu;
     AudienceView* audienceWindow;
     ScorerView* scorerWindow;
 };
