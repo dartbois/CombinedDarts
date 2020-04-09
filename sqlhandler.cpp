@@ -292,11 +292,11 @@ string sqlHandler::sqlGetPlayerList() {
     string temp;
     string playerInfoLine = "";
 
-    query.prepare("SELECT [Player ID], [First Name], [Last Name], [Hometown], [Ranking], [Num Games Won] FROM players;");
+    query.prepare("SELECT [Player ID], [First Name], [Last Name], Hometown, Ranking FROM players");
     query.exec();
 
     while (query.next()){
-        for (int i=0; i<6; i++){
+        for (int i=0; i<5; i++){
             temp = query.value(i).toString().toStdString();
             playerInfoLine.append(temp);
             playerInfoLine.append("\t");
@@ -313,7 +313,7 @@ string sqlHandler::sqlGetGameList() {
     string temp;
     string gameInfoLine = "";
 
-    query.prepare("SELECT [Game ID], [Game Name], Date, Location, Player1, Player2 FROM games;");
+    query.prepare("SELECT [Game ID], [Game Name], Date, Location, Player1, Player2 FROM games");
     query.exec();
 
     while (query.next()){

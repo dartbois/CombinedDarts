@@ -25,7 +25,7 @@ void ManagePlayerMenu::FillPlayerList(){
 
     //Return a string of game info from sqlhandler. \n delimited.
     std::string playerInfo;
-    playerInfo = myD.sqlGet("1:playerInfoList");
+    playerInfo = myD.sqlGet("0:playerInfoList");
     QString QplayerInfo;
     QplayerInfo = QString::fromStdString(playerInfo);
 

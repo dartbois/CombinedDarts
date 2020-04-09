@@ -36,8 +36,6 @@ public:
     int sqlGetGameP1(int gameID);
     int sqlGetGameP2(int gameID);
 
-    player sqlGetPlayer(int playerID1, int playerID2);
-
     string sqlGetPlayerList();
     string sqlGetGameList();
 

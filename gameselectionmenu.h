@@ -14,6 +14,7 @@ class GameSelectionMenu : public QDialog
     Q_OBJECT
 
 public:
+    void FillGameList();
     explicit GameSelectionMenu(QWidget *parent = nullptr);
     ~GameSelectionMenu();
 
