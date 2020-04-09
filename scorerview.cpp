@@ -9,6 +9,7 @@ ScorerView::ScorerView(AudienceView *audienceWindow) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Scorer Window");
+    this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
     QString scoreString = "                                 ";
 
     //connect the show stats signals to the audience window slots
@@ -32,7 +33,6 @@ ScorerView::ScorerView(AudienceView *audienceWindow) :
    connect(this, &ScorerView::sendWinPercentagesUndo, audienceWindow, &AudienceView::undoWinPercentagesText);
    connect(this, &ScorerView::sendPersonalStatsUndo, audienceWindow, &AudienceView::undoPersonalStatsText);
    connect(this, &ScorerView::sendPlayerTwoStatsUndo, audienceWindow, &AudienceView::undoPlayerTwoStatsText);
-
 
 
 

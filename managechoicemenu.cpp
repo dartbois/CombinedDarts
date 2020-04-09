@@ -7,6 +7,7 @@ ManageChoiceMenu::ManageChoiceMenu(QWidget *parent) :
 {
     ui->setupUi(this);
     manageGame = new ManageGameMenu();
+    this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
     managePlayers = new ManagePlayerMenu();
 }
 

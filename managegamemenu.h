@@ -2,6 +2,7 @@
 #define MANAGEGAMEMENU_H
 
 #include <QtWidgets/QDialog>
+#include <cstring>
 
 namespace Ui {
 class ManageGameMenu;
@@ -12,6 +13,8 @@ class ManageGameMenu : public QDialog
     Q_OBJECT
 
 public:
+    void FillGameList();
+
     explicit ManageGameMenu(QWidget *parent = nullptr);
     ~ManageGameMenu();
 

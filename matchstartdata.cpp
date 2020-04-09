@@ -4,13 +4,13 @@
 MatchStartData::MatchStartData()
 {
     DataHandler my_Handler;
-    startScore =
-    legNumber =
-    matchNumber =
-    playersParticipating[0] =
-    playersParticipating[1] =
+    startScore = 0;
+    legNumber = 0;
+    matchNumber = 0;
+    playersParticipating[0] = "";
+    playersParticipating[1] = "";
 
-}
+};
 
 string MatchStartData::dataGet(string request){
     string answer;

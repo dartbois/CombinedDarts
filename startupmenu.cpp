@@ -7,11 +7,11 @@ StartupMenu::StartupMenu(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Startup Menu");
+    this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
     manageChoiceMenu = new ManageChoiceMenu();
-    dartboardWindow = new Widget();
     audienceWindow = new AudienceView();
     scorerWindow = new ScorerView(audienceWindow);
-
+    dartboardWindow = new Widget();
 }
 
 StartupMenu::~StartupMenu()
@@ -42,7 +42,5 @@ void StartupMenu::on_GameButton_clicked()
 {
     scorerWindow->show();
     audienceWindow->show();
-    dartboardWindow->setVisible(true);
-    dartboardWindow->resize(400, 400);
     this->hide();
 }
