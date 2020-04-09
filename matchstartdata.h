@@ -7,13 +7,18 @@ using namespace std;
 class MatchStartData
 {
 public:
-    MatchStartData();
-    int startScore;
-    int legNumber;
-    int matchNumber;
-    string playersParticipating[2];
+    MatchStartData(int matchID);
+    string gameName;
+    string gameDate;
+    string gameLocation;
+    int gameStartScore;
+    int gameLegs;
+    int gameMatches;
+    string gamePs[2];
     string dataGet(string request);
 
 };
+
+
 
 #endif // MATCHSTARTDATA_H

@@ -257,5 +257,9 @@ void Widget::addScore()
     QString scoreString = "Score: ";
     scoreString.append(QString::number(this->score));
     Widget::scoreDisplayer->setText(scoreString);
+    //figure out which player is active (1 or 2)
+    //send the score (variable score i guess) to dataHandler
+    //score goes to mathClass
+    //score is subtracted from currentScore for that player
 
 }
