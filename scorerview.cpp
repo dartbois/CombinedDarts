@@ -176,6 +176,7 @@ void ScorerView::set_SlingThreeText(int score)
 void ScorerView::on_ValadationYes_clicked()
 {
     //Database accept code goes here
+    emit sendValidateTrue(false);    //sending false will unblock the scoring
 }
 
 void ScorerView::on_ValadationNo_clicked()

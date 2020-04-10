@@ -19,16 +19,19 @@ public:
 public slots:
     void addScore();
 
+    void validationBlocker(bool blockForValidation);
+
  signals:
     void scoreSignalOne(int i);
     void scoreSignalTwo(int i);
     void scoreSignalThree(int i);
-    void needsValidation();
+    void needsValidation(bool run);
 
 
 private:
     QList<QPieSeries *> m_donuts;
 
+    QWidget* theParent;
     QLabel *scoreDisplayer;
 };
 

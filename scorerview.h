@@ -82,6 +82,9 @@ signals:
 
     void sendCurrentPlayerStatsUndo();
 
+    //These signals will be used for validation of the scores
+    void sendValidateTrue(bool unblockScore);
+
 public:
     Ui::ScorerView *ui;
     QLabel *StatisticsDisplay;
