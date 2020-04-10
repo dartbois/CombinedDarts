@@ -1,6 +1,7 @@
 #include "scorerview.h"
 #include "ui_scorerview.h"
 #include "audienceview.h"
+#include <String>
 
 
 ScorerView::ScorerView(AudienceView *audienceWindow) :
@@ -11,6 +12,10 @@ ScorerView::ScorerView(AudienceView *audienceWindow) :
     this->setWindowTitle("Scorer Window");
     this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
     QString scoreString = "                                 ";
+    SlingOneText = ui->SlingOne;
+    SlingTwoText = ui ->SlingTwo;
+    SlingThreeText = ui->SlineThree;
+
 
     //connect the show stats signals to the audience window slots
    connect(this, &ScorerView::sendPlayerOneStats, audienceWindow, &AudienceView::setPlayerOneStatsText);
@@ -22,6 +27,7 @@ ScorerView::ScorerView(AudienceView *audienceWindow) :
    connect(this, &ScorerView::sendPersonalStats, audienceWindow, &AudienceView::setPersonalStatsText);
    connect(this, &ScorerView::sendMatchStats, audienceWindow, &AudienceView::setMatchStatsText);
    connect(this, &ScorerView::sendRankedStats, audienceWindow, &AudienceView::setRankedStatsText);
+
 
    //connect the label-clearing undo signals to the audience window slots
    connect(this, &ScorerView::sendRankedStatsUndo, audienceWindow, &AudienceView::undoRankedText);
@@ -152,3 +158,42 @@ void ScorerView::on_RankedStats_clicked()
     }
 }
 
+void ScorerView::set_SlingOneText(int score)
+{
+    SlingOneText -> setText(QString::number(score));
+}
+
+void ScorerView::set_SlingTwoText(int score)
+{
+    SlingTwoText -> setText(QString::number(score));
+}
+
+void ScorerView::set_SlingThreeText(int score)
+{
+    SlingThreeText -> setText(QString::number(score));
+}
+
+void ScorerView::on_ValadationYes_clicked()
+{
+    //Database accept code goes here
+}
+
+void ScorerView::on_ValadationNo_clicked()
+{
+    //Database reject code goes here
+}
+
+void ScorerView::on_SlingOne_linkActivated(const QString &link)
+{
+
+}
+
+void ScorerView::on_SlingTwo_linkActivated(const QString &link)
+{
+
+}
+
+void ScorerView::on_SlineThree_linkActivated(const QString &link)
+{
+
+}

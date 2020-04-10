@@ -8,6 +8,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtCore/QTimer>
 #include <QCursor>
+#include "scorerview.h"
 
 
 QT_CHARTS_USE_NAMESPACE
@@ -27,6 +28,11 @@ Widget::Widget(QWidget *parent)
     scoreDisplayer = new QLabel(scoreString, chartView);
     Widget::scoreDisplayer->setVisible(true);
     //! [1]
+
+    //
+    dartNumber = 0;
+
+
 
     //! [2]
     qreal minSize = 0.10;
@@ -241,6 +247,13 @@ Widget::Widget(QWidget *parent)
     mainLayout->addWidget(chartView, 1, 1);
     setLayout(mainLayout);
     //! [4]
+
+
+    // Connect the dart score labels to the dart board widget
+    connect(this, SIGNAL(scoreSignalOne(int)), parent, SLOT(set_SlingOneText(int)));
+    connect(this, SIGNAL(scoreSignalTwo(int)), parent, SLOT(set_SlingTwoText(int)));
+    connect(this, SIGNAL(scoreSignalThree(int)), parent, SLOT(set_SlingThreeText(int)));
+
 }
 
 Widget::~Widget()
@@ -251,15 +264,25 @@ Widget::~Widget()
 void Widget::addScore()
 {
     QPieSlice *slice = qobject_cast<QPieSlice *>(sender());
-    this->score += slice->label().toInt();
+    this->score = slice->label().toInt();
     slice->setLabelVisible(true);
     Widget::scoreDisplayer->clear();
-    QString scoreString = "Score: ";
-    scoreString.append(QString::number(this->score));
-    Widget::scoreDisplayer->setText(scoreString);
-    //figure out which player is active (1 or 2)
-    //send the score (variable score i guess) to dataHandler
-    //score goes to mathClass
-    //score is subtracted from currentScore for that player
-
+//    QString scoreString = "Score: ";
+//    scoreString.append(QString::number(this->score));
+//    Widget::scoreDisplayer->setText(scoreString);
+    dartNumber++;
+    if(dartNumber == 1)
+    {
+        emit scoreSignalOne(score);
+    }
+    if(dartNumber == 2)
+    {
+        emit scoreSignalTwo(score);
+    }
+    if(dartNumber == 3)
+    {
+        emit scoreSignalThree(score);
+        emit needsValidation(); //Still need to figure out what to do with this
+        dartNumber = 0;
+    }
 }

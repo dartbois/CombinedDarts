@@ -15,8 +15,16 @@ public:
     Widget(QWidget *parent = 0);
     ~Widget();
     int score = 0;
+    int dartNumber;
 public slots:
     void addScore();
+
+ signals:
+    void scoreSignalOne(int i);
+    void scoreSignalTwo(int i);
+    void scoreSignalThree(int i);
+    void needsValidation();
+
 
 private:
     QList<QPieSeries *> m_donuts;

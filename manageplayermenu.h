@@ -13,7 +13,6 @@ class ManagePlayerMenu : public QDialog
 
 public:
     void FillPlayerList();
-
     explicit ManagePlayerMenu(QWidget *parent = nullptr);
     ~ManagePlayerMenu();
 

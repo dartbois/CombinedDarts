@@ -36,6 +36,12 @@ public slots:
 
     void on_NumberOf180s_clicked();
 
+    void set_SlingOneText(int score);
+
+    void set_SlingTwoText(int score);
+
+    void set_SlingThreeText(int score);
+
 signals:
 
     //These signals will show the stats in the audience window
@@ -87,6 +93,17 @@ public:
     QLabel *PersonalStats;
     QLabel *MatchStats;
     QLabel *RankedStats;
+    QLabel *SlingOneText;
+    QLabel *SlingTwoText;
+    QLabel *SlingThreeText;
+
+
+private slots:
+    void on_ValadationYes_clicked();
+    void on_ValadationNo_clicked();
+    void on_SlingOne_linkActivated(const QString &link);
+    void on_SlingTwo_linkActivated(const QString &link);
+    void on_SlineThree_linkActivated(const QString &link);
 };
 
 #endif // SCORERVIEW_H

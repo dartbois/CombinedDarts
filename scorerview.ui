@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1267</width>
+    <width>1327</width>
     <height>719</height>
    </rect>
   </property>
@@ -17,14 +17,14 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="9" column="17">
-    <widget class="QPushButton" name="pushButton_4">
+   <item row="0" column="19">
+    <widget class="QLabel" name="SlineThree">
      <property name="text">
-      <string>Finish Match</string>
+      <string/>
      </property>
     </widget>
    </item>
-   <item row="8" column="15" alignment="Qt::AlignVCenter">
+   <item row="8" column="16" alignment="Qt::AlignVCenter">
     <widget class="QLabel" name="label_6">
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Legs&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt; :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -41,10 +41,17 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="15">
-    <widget class="QPushButton" name="pushButton">
+   <item row="1" column="16">
+    <widget class="QPushButton" name="ValadationYes">
      <property name="text">
       <string>Yes</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="19">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>Next Leg</string>
      </property>
     </widget>
    </item>
@@ -95,8 +102,8 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="18" alignment="Qt::AlignLeft">
-    <widget class="QPushButton" name="pushButton_2">
+   <item row="1" column="19" alignment="Qt::AlignLeft">
+    <widget class="QPushButton" name="ValadationNo">
      <property name="text">
       <string>No</string>
      </property>
@@ -112,7 +119,7 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="14" rowspan="2">
+   <item row="8" column="15" rowspan="2">
     <widget class="Line" name="line_5">
      <property name="baseSize">
       <size>
@@ -141,25 +148,6 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="16" rowspan="2">
-    <widget class="Line" name="line_9">
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="midLineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="13" rowspan="2">
     <widget class="Line" name="line_11">
      <property name="lineWidth">
@@ -173,31 +161,28 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="17">
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="text">
-      <string>Next Leg</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="2" colspan="13">
-    <widget class="Widget" name="widget" native="true">
-     <property name="baseSize">
-      <size>
-       <width>1000</width>
-       <height>1000</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="14" alignment="Qt::AlignRight">
+   <item row="0" column="14" rowspan="2">
     <widget class="QLabel" name="label_4">
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Validation: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="15" colspan="4">
+   <item row="0" column="16">
+    <widget class="QLabel" name="SlingOne">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="19">
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="text">
+      <string>Finish Match</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="16" colspan="4">
     <widget class="QTableWidget" name="tableWidget">
      <property name="maximumSize">
       <size>
@@ -217,7 +202,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="13" colspan="6">
+   <item row="2" column="13" colspan="7">
     <widget class="Line" name="line_6">
      <property name="midLineWidth">
       <number>2</number>
@@ -309,13 +294,56 @@
      </layout>
     </widget>
    </item>
-   <item row="5" column="2" rowspan="3" colspan="17">
+   <item row="5" column="2" rowspan="3" colspan="18">
     <widget class="Line" name="line_2">
      <property name="midLineWidth">
       <number>2</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="18" rowspan="2">
+    <widget class="Line" name="line_9">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>2</number>
+     </property>
+     <property name="midLineWidth">
+      <number>2</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="17">
+    <widget class="QLabel" name="LegNumber">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="17">
+    <widget class="QLabel" name="SlingTwo">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2" colspan="13">
+    <widget class="Widget" name="widget" native="true">
+     <property name="baseSize">
+      <size>
+       <width>1000</width>
+       <height>1000</height>
+      </size>
      </property>
     </widget>
    </item>
@@ -326,19 +354,23 @@
   <zorder>label_3</zorder>
   <zorder>line_3</zorder>
   <zorder>line_4</zorder>
-  <zorder>pushButton_2</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>label_4</zorder>
+  <zorder>ValadationNo</zorder>
+  <zorder>ValadationYes</zorder>
   <zorder>tableWidget</zorder>
   <zorder>line_11</zorder>
-  <zorder>widget</zorder>
-  <zorder>pushButton_3</zorder>
-  <zorder>pushButton_4</zorder>
-  <zorder>line_9</zorder>
   <zorder>line_5</zorder>
   <zorder>frame_2</zorder>
   <zorder>frame</zorder>
   <zorder>label_6</zorder>
+  <zorder>SlingOne</zorder>
+  <zorder>SlineThree</zorder>
+  <zorder>label_4</zorder>
+  <zorder>pushButton_3</zorder>
+  <zorder>pushButton_4</zorder>
+  <zorder>line_9</zorder>
+  <zorder>LegNumber</zorder>
+  <zorder>SlingTwo</zorder>
+  <zorder>widget</zorder>
  </widget>
  <customwidgets>
   <customwidget>
