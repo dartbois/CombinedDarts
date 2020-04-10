@@ -1,9 +1,11 @@
 #include "gameselectionmenu.h"
 #include "ui_gameselectionmenu.h"
 #include "datahandler.h"
+#include "matchstartdata.h"
 
 GameSelectionMenu::GameSelectionMenu(QWidget *parent) :
     QDialog(parent),
+
     ui(new Ui::GameSelectionMenu)
 {
     ui->setupUi(this);
@@ -19,6 +21,16 @@ GameSelectionMenu::~GameSelectionMenu()
 
 void GameSelectionMenu::on_pushButton_clicked()
 {
+    DataHandler myD;
+    //get the ID of the selected list item
+    //put it in a matchstartdata then send it to scorerview
+    QListWidgetItem * myGame = ui->listWidget->currentItem();
+    QStringList gameString = myGame->text().split("\t");
+    QString gameIDstring = gameString[0];
+    int gameID = gameIDstring.toInt();
+    myMSD.postInit(gameID);
+    myD.matchGSMtoSV(scorerWindow, myMSD.gameStartScore);
+
     scorerWindow->show();
     audienceWindow->show();
     this->hide();

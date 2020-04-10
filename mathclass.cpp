@@ -5,6 +5,7 @@
 mathClass::mathClass(int scoreStart)
 {
     currentScore[0] = scoreStart, currentScore[1] = scoreStart;
+
 };
 
 
@@ -149,8 +150,8 @@ void mathClass::scoreSubtract(int player, int throwScore){
 
 
 bool mathClass::scoreValidator(int remScore) {
-    bool check = (remScore <= 20 || remScore == 25 || remScore == 50 || (remScore <= 60 && (remScore%2 == 0 || remScore%3 == 0)));
-
+    bool check;
+    check = (1 <= remScore && remScore <= 20) || (1 <= remScore/3 && remScore/3 <= 20 && remScore%3 == 0) || (1 <= remScore/2 && remScore/2 <= 20 && remScore%2 == 0) || (remScore == 25) || (remScore == 50);
     return check;
 };
 

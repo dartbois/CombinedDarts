@@ -16,15 +16,8 @@ public:
     explicit ManagePlayerMenu(QWidget *parent = nullptr);
     ~ManagePlayerMenu();
 
-private slots:
-    void on_PlayerMenuRemove_clicked();
-
-    void on_PlayerMenuAdd_clicked();
-
 private:
     Ui::ManagePlayerMenu *ui;
-
-
 };
 
 #endif // MANAGEPLAYERMENU_H
