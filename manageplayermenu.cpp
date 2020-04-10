@@ -41,7 +41,15 @@ void ManagePlayerMenu::on_PlayerMenuRemove_clicked()
 {
     DataHandler myD;
 
-    myD.sqlGet("1:removePlayer");
+    QString currentItem = ui->listWidget->currentItem()->text();
+    QStringList currentItemList = currentItem.split("\t");
+    currentItem = currentItemList[0];
+
+    string currentItemID = currentItem.toStdString();
+
+    string req = currentItemID + ":removePlayer";
+
+    myD.sqlGet(req);
 
     FillPlayerList();
 }

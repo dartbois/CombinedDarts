@@ -3,6 +3,8 @@
 #include "sqlhandler.h"
 #include "mathclass.h"
 #include "matchstartdata.h"
+#include <QDir>
+#include <QDebug>
 
 using namespace std;
 
@@ -18,7 +20,10 @@ string DataHandler::sqlGet(string request){
     char varGet[50] = {'\0'};
     int id;
     string answer;
-    sqlHandler mySql("C:\\Users\\Cassidy\\Documents\\School\\SeniorDesign\\CombinedDarts-master\\DartLeague.db");
+    QString path = QDir::currentPath();
+    path = path + QString("/DartLeague.db");
+    qDebug() << path;
+    sqlHandler mySql(path);
 
     strcpy(requestHandler, request.c_str());
     strcpy(idHandler, strtok(requestHandler, ":"));
