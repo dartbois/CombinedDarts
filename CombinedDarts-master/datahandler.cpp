@@ -23,7 +23,6 @@ string DataHandler::sqlGet(string request){
 
     QString path = QDir::currentPath();
     path = path + QString("/DartLeague.db");
-    qDebug() << path;
     sqlHandler mySql(path);
 
     strcpy(requestHandler, request.c_str());
