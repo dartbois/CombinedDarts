@@ -20,9 +20,9 @@ string DataHandler::sqlGet(string request){
     char varGet[50] = {'\0'};
     int id;
     string answer;
+
     QString path = QDir::currentPath();
     path = path + QString("/DartLeague.db");
-    qDebug() << path;
     sqlHandler mySql(path);
 
     strcpy(requestHandler, request.c_str());

@@ -23,6 +23,9 @@ void ManagePlayerMenu::FillPlayerList(){
     //Begin by clearing the list
     ui->listWidget->clear();
 
+    QString header = "Player ID\tFirst\tLast\tHometown\tLeague Rank\tGames Played";
+    ui->listWidget->addItem(header);
+
     //Return a string of game info from sqlhandler. \n delimited.
     std::string playerInfo;
     playerInfo = myD.sqlGet("0:playerInfoList");
@@ -39,19 +42,22 @@ void ManagePlayerMenu::FillPlayerList(){
 
 void ManagePlayerMenu::on_PlayerMenuRemove_clicked()
 {
-    DataHandler myD;
+    //Row 0 is the header and cannot be removed.
+    if (ui->listWidget->currentRow() != 0){
+        DataHandler myD;
 
-    QString currentItem = ui->listWidget->currentItem()->text();
-    QStringList currentItemList = currentItem.split("\t");
-    currentItem = currentItemList[0];
+        QString currentItem = ui->listWidget->currentItem()->text();
+        QStringList currentItemList = currentItem.split("\t");
+        currentItem = currentItemList[0];
 
-    string currentItemID = currentItem.toStdString();
+        string currentItemID = currentItem.toStdString();
 
-    string req = currentItemID + ":removePlayer";
+        string req = currentItemID + ":removePlayer";
 
-    myD.sqlGet(req);
+        myD.sqlGet(req);
 
-    FillPlayerList();
+        FillPlayerList();
+    }
 }
 
 void ManagePlayerMenu::on_PlayerMenuAdd_clicked()
