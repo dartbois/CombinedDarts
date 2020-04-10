@@ -139,3 +139,7 @@ string DataHandler::matchstartGet(string request, MatchStartData myS){
     return answer;
 }
 
+void DataHandler::matchGSMtoSV(ScorerView * scW, int scoreStart){
+    scW->myM.postInit(scoreStart);
+}
+

@@ -4,6 +4,7 @@
 #include <QtWidgets/QDialog>
 #include "audienceview.h"
 #include <QLabel>
+#include "mathclass.h"
 
 namespace Ui {
 class ScorerView;
@@ -107,6 +108,9 @@ private slots:
     void on_SlingOne_linkActivated(const QString &link);
     void on_SlingTwo_linkActivated(const QString &link);
     void on_SlineThree_linkActivated(const QString &link);
+
+public:
+    mathClass myM;
 };
 
 #endif // SCORERVIEW_H
