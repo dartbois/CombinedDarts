@@ -2,6 +2,8 @@
 #define MANAGEGAMEMENU_H
 
 #include <QtWidgets/QDialog>
+#include "gameaddeditmenu.h"
+
 
 namespace Ui {
 class ManageGameMenu;
@@ -17,10 +19,16 @@ public:
     ~ManageGameMenu();
 
 private slots:
+    void on_GameMenuAdd_clicked();
+
+    void on_GameMenuEdit_clicked();
+
     void on_GameMenuRemove_clicked();
 
 private:
     Ui::ManageGameMenu *ui;
+    GameAddEditMenu* gameAddEditMenu;
+
 };
 
 #endif // MANAGEGAMEMENU_H

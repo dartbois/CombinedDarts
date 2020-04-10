@@ -7,8 +7,11 @@ ManageGameMenu::ManageGameMenu(QWidget *parent) :
     ui(new Ui::ManageGameMenu)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Manage Game Menu");
     this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
     FillGameList();
+    gameAddEditMenu = new GameAddEditMenu();
+
 }
 
 ManageGameMenu::~ManageGameMenu()
@@ -37,6 +40,16 @@ void ManageGameMenu::FillGameList(){
 
     //Add list to listWidget
     ui->listWidget->addItems(gameInfoList);
+}
+
+void ManageGameMenu::on_GameMenuAdd_clicked()
+{
+    gameAddEditMenu -> show();
+}
+
+void ManageGameMenu::on_GameMenuEdit_clicked()
+{
+    gameAddEditMenu -> show();
 }
 
 void ManageGameMenu::on_GameMenuRemove_clicked()

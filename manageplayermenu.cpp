@@ -7,8 +7,10 @@ ManagePlayerMenu::ManagePlayerMenu(QWidget *parent) :
     ui(new Ui::ManagePlayerMenu)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Manage Player Menu");
     this->setWindowFlag(Qt::WindowMinMaxButtonsHint);
     FillPlayerList();
+    playerAddEditMenu = new PlayerAddEditMenu();
 }
 
 ManagePlayerMenu::~ManagePlayerMenu()
@@ -40,27 +42,32 @@ void ManagePlayerMenu::FillPlayerList(){
 
 }
 
+void ManagePlayerMenu::on_PlayerMenuAdd_clicked()
+{
+     playerAddEditMenu -> show();
+}
+
+void ManagePlayerMenu::on_PlayerMenuEdit_clicked()
+{
+     playerAddEditMenu -> show();
+}
+
 void ManagePlayerMenu::on_PlayerMenuRemove_clicked()
 {
     //Row 0 is the header and cannot be removed.
-    if (ui->listWidget->currentRow() != 0){
-        DataHandler myD;
+   if (ui->listWidget->currentRow() != 0){
+       DataHandler myD;
 
-        QString currentItem = ui->listWidget->currentItem()->text();
-        QStringList currentItemList = currentItem.split("\t");
-        currentItem = currentItemList[0];
+       QString currentItem = ui->listWidget->currentItem()->text();
+       QStringList currentItemList = currentItem.split("\t");
+       currentItem = currentItemList[0];
 
-        string currentItemID = currentItem.toStdString();
+       string currentItemID = currentItem.toStdString();
 
-        string req = currentItemID + ":removePlayer";
+       string req = currentItemID + ":removePlayer";
 
-        myD.sqlGet(req);
+       myD.sqlGet(req);
 
-        FillPlayerList();
-    }
-}
-
-void ManagePlayerMenu::on_PlayerMenuAdd_clicked()
-{
-
+       FillPlayerList();
+   }
 }
