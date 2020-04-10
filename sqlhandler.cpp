@@ -334,13 +334,10 @@ void sqlHandler::sqlSetPlayerFinal(int playerID, player Player) {
 
 
 }
-
 //Setter: needs to update game db stats after game is complete
 void sqlHandler::sqlSetGameFinal(int gameID){
 
 }
-
-//Setter: needs to add a new player to the SQLite db
 void sqlHandler::sqlAddNewPlayer(int playerID, player Player){
 
 }
@@ -371,3 +368,5 @@ void sqlHandler::sqlRemoveGame(int gameID){
     query.exec();
     query.first();
 }
+
+//Setter: needs to add a new player to the SQLite db

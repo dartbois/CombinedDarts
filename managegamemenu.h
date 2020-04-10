@@ -5,6 +5,7 @@
 #include "gameaddeditmenu.h"
 
 
+
 namespace Ui {
 class ManageGameMenu;
 }
@@ -25,9 +26,11 @@ private slots:
 
     void on_GameMenuRemove_clicked();
 
+
 private:
     Ui::ManageGameMenu *ui;
     GameAddEditMenu* gameAddEditMenu;
+
 
 };
 

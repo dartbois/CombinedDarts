@@ -47,6 +47,7 @@ public:
     void sqlAddNewGame(int gameID);
     void sqlRemoveGame(int gameID);
 
+
 private:
     QSqlDatabase m_db;
 };
