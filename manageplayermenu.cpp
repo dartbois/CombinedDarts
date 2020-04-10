@@ -41,9 +41,7 @@ void ManagePlayerMenu::on_PlayerMenuRemove_clicked()
 {
     DataHandler myD;
 
-    //remove the player (1 for now)
     myD.sqlGet("1:removePlayer");
 
-    //refresh list
     FillPlayerList();
 }
