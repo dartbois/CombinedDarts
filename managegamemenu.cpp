@@ -23,9 +23,6 @@ void ManageGameMenu::FillGameList(){
     //Begin by clearing the list
     ui->listWidget->clear();
 
-    QString header = "Game ID\tGame Name\tDate\tLocation\tPlayer1 ID\tPlayer2 ID";
-    ui->listWidget->addItem(header);
-
     //Return a string of game info from sqlhandler. \n delimited.
     std::string gameInfo;
     gameInfo = myD.sqlGet("1:gameInfoList");
@@ -37,23 +34,4 @@ void ManageGameMenu::FillGameList(){
 
     //Add list to listWidget
     ui->listWidget->addItems(gameInfoList);
-}
-
-void ManageGameMenu::on_GameMenuRemove_clicked()
-{
-    if (ui->listWidget->currentRow() != 0){
-        DataHandler myD;
-
-        QString currentItem = ui->listWidget->currentItem()->text();
-        QStringList currentItemList = currentItem.split("\t");
-        currentItem = currentItemList[0];
-
-        string currentItemID = currentItem.toStdString();
-
-        string req = currentItemID + ":removeGame";
-
-        myD.sqlGet(req);
-
-        FillGameList();
-    }
 }

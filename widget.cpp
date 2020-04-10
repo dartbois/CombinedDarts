@@ -31,7 +31,6 @@ Widget::Widget(QWidget *parent)
 
     //
     dartNumber = 0;
-
     this->theParent = parent;
 
 
@@ -287,8 +286,13 @@ void Widget::addScore()
         emit scoreSignalThree(score);
         dartNumber = -1;
         emit needsValidation(true);
+
+    }
+}
+
         }
     }
+
 void Widget::validationBlocker(bool blockForValidation)
 {
     if (blockForValidation == true)

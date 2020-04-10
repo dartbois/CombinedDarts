@@ -16,9 +16,6 @@ public:
     explicit ManageGameMenu(QWidget *parent = nullptr);
     ~ManageGameMenu();
 
-private slots:
-    void on_GameMenuRemove_clicked();
-
 private:
     Ui::ManageGameMenu *ui;
 };
