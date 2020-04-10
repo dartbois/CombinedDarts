@@ -27,6 +27,7 @@ private slots:
 private:
     Ui::ManagePlayerMenu *ui;
      PlayerAddEditMenu* playerAddEditMenu;
+
 };
 
 #endif // MANAGEPLAYERMENU_H

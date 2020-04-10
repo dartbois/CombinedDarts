@@ -7,6 +7,8 @@ using namespace std;
 class MatchStartData
 {
 public:
+    MatchStartData();
+    void postInit(int matchID);
     MatchStartData(int matchID);
     string gameName;
     string gameDate;

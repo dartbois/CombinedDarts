@@ -25,8 +25,10 @@ void ManagePlayerMenu::FillPlayerList(){
     //Begin by clearing the list
     ui->listWidget->clear();
 
-    QString header = "Player ID\tFirst\tLast\tHometown\tLeague Rank\tGames Played";
-    ui->listWidget->addItem(header);
+     QString header = "Player ID\tFirst\tLast\tHometown\tLeague Rank\tGames Played";
+     ui->listWidget->addItem(header);
+
+
 
     //Return a string of game info from sqlhandler. \n delimited.
     std::string playerInfo;
@@ -41,6 +43,7 @@ void ManagePlayerMenu::FillPlayerList(){
     ui->listWidget->addItems(playerInfoList);
 
 }
+
 
 void ManagePlayerMenu::on_PlayerMenuAdd_clicked()
 {

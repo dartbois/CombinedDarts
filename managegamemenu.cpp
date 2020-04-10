@@ -3,7 +3,6 @@
 #include "datahandler.h"
 
 ManageGameMenu::ManageGameMenu(QWidget *parent) :
-    QDialog(parent),
     ui(new Ui::ManageGameMenu)
 {
     ui->setupUi(this);
@@ -41,6 +40,7 @@ void ManageGameMenu::FillGameList(){
     //Add list to listWidget
     ui->listWidget->addItems(gameInfoList);
 }
+
 
 void ManageGameMenu::on_GameMenuAdd_clicked()
 {
