@@ -94,8 +94,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>366</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -110,12 +110,28 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>366</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PlayerMenuRemove</sender>
+   <signal>clicked()</signal>
+   <receiver>PlayerMenuRemove</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>411</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>411</y>
     </hint>
    </hints>
   </connection>

@@ -292,11 +292,11 @@ string sqlHandler::sqlGetPlayerList() {
     string temp;
     string playerInfoLine = "";
 
-    query.prepare("SELECT [Player ID], [First Name], [Last Name], Hometown, Ranking FROM players");
+    query.prepare("SELECT [Player ID], [First Name], [Last Name], Hometown, Ranking, [Num Games Played] FROM players");
     query.exec();
 
     while (query.next()){
-        for (int i=0; i<5; i++){
+        for (int i=0; i<6; i++){
             temp = query.value(i).toString().toStdString();
             playerInfoLine.append(temp);
             playerInfoLine.append("\t");
@@ -330,9 +330,38 @@ string sqlHandler::sqlGetGameList() {
 }
 
 //Setter: needs to set final player info into SQLite
-void sqlHandler::sqlSetPlayerFinal(QString& playerID, player Player) {
+void sqlHandler::sqlSetPlayerFinal(int playerID, player Player) {
 
 
 }
 
+//Setter: needs to update game db stats after game is complete
+void sqlHandler::sqlSetGameFinal(int gameID){
+
+}
+
 //Setter: needs to add a new player to the SQLite db
+void sqlHandler::sqlAddNewPlayer(int playerID, player Player){
+
+}
+
+//Setter: needs to remove a player from the SQLite db
+void sqlHandler::sqlRemovePlayer(int playerID){
+    QSqlQuery query;
+
+    query.prepare("DELETE FROM players WHERE [Player ID] = ?");
+    query.bindValue(0, playerID);
+
+    query.exec();
+    query.first();
+}
+
+//Setter: needs to add a new game to the SQLite db
+void sqlHandler::sqlAddNewGame(int gameID){
+
+}
+
+//Setter: needs to remove a game from the SQLite db
+void sqlHandler::sqlRemoveGame(int gameID){
+
+}

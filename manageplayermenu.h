@@ -18,6 +18,10 @@ public:
 
 private:
     Ui::ManagePlayerMenu *ui;
+
+signals:
+private:
+    void on_PlayerMenuRemove_clicked();
 };
 
 #endif // MANAGEPLAYERMENU_H
