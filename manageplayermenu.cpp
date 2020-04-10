@@ -45,3 +45,8 @@ void ManagePlayerMenu::on_PlayerMenuRemove_clicked()
 
     FillPlayerList();
 }
+
+void ManagePlayerMenu::on_PlayerMenuAdd_clicked()
+{
+
+}

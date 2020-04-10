@@ -19,6 +19,8 @@ public:
 private slots:
     void on_PlayerMenuRemove_clicked();
 
+    void on_PlayerMenuAdd_clicked();
+
 private:
     Ui::ManagePlayerMenu *ui;
 
