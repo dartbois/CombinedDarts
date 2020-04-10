@@ -2,7 +2,6 @@
 #define MANAGEPLAYERMENU_H
 
 #include <QtWidgets/QDialog>
-#include "playeraddeditmenu.h"
 
 namespace Ui {
 class ManagePlayerMenu;
@@ -17,16 +16,8 @@ public:
     explicit ManagePlayerMenu(QWidget *parent = nullptr);
     ~ManagePlayerMenu();
 
-private slots:
-    void on_PlayerMenuAdd_clicked();
-
-    void on_PlayerMenuEdit_clicked();
-
-    void on_PlayerMenuRemove_clicked();
-
 private:
     Ui::ManagePlayerMenu *ui;
-     PlayerAddEditMenu* playerAddEditMenu;
 };
 
 #endif // MANAGEPLAYERMENU_H

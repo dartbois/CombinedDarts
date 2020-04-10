@@ -3,6 +3,7 @@
 
 #include <QtWidgets/QDialog>
 #include "audienceview.h"
+#include "mathclass.h"
 #include <QLabel>
 
 namespace Ui {
@@ -82,9 +83,6 @@ signals:
 
     void sendCurrentPlayerStatsUndo();
 
-    //These signals will be used for validation of the scores
-    void sendValidateTrue(bool unblockScore);
-
 public:
     Ui::ScorerView *ui;
     QLabel *StatisticsDisplay;
@@ -107,6 +105,11 @@ private slots:
     void on_SlingOne_linkActivated(const QString &link);
     void on_SlingTwo_linkActivated(const QString &link);
     void on_SlineThree_linkActivated(const QString &link);
+
+public:
+    mathClass myM;
+    void getMSD(int startVal);
+    int beginScore;
 };
 
 #endif // SCORERVIEW_H

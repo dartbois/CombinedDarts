@@ -21,8 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
-datahandler.cpp \
-    gameaddeditmenu.cpp \
+    datahandler.cpp \
     main.cpp \
     managechoicemenu.cpp \
     managegamemenu.cpp \
@@ -30,7 +29,6 @@ datahandler.cpp \
     matchstartdata.cpp \
     mathclass.cpp \
     player.cpp \
-    playeraddeditmenu.cpp \
     sqlhandler.cpp \
     startupmenu.cpp \
     audienceview.cpp \
@@ -41,32 +39,29 @@ datahandler.cpp \
 INSTALLS += target
 
 FORMS += \
-    gameaddeditmenu.ui \
     managechoicemenu.ui \
     managegamemenu.ui \
     manageplayermenu.ui \
-    playeraddeditmenu.ui \
     startupmenu.ui \
     audienceview.ui \
     scorerview.ui \
     gameselectionmenu.ui
 
 HEADERS += \
-datahandler.h \
-    gameaddeditmenu.h \
+    datahandler.h \
     managechoicemenu.h \
     managegamemenu.h \
     manageplayermenu.h \
     matchstartdata.h \
     mathclass.h \
     player.h \
-    playeraddeditmenu.h \
     sqlhandler.h \
     startupmenu.h \
     audienceview.h \
     scorerview.h \
     widget.h \
     gameselectionmenu.h
+
 
 
 # Default rules for deployment.

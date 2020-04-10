@@ -32,7 +32,6 @@ Widget::Widget(QWidget *parent)
     //
     dartNumber = 0;
 
-    this->theParent = parent;
 
 
     //! [2]
@@ -249,9 +248,7 @@ Widget::Widget(QWidget *parent)
     setLayout(mainLayout);
     //! [4]
 
-    // Connect the score validation blocker and unblocker
-    connect(this, SIGNAL(needsValidation(bool)), this, SLOT(validationBlocker(bool)));
-    connect(parent, SIGNAL(sendValidateTrue(bool)), this, SLOT(validationBlocker(bool)));
+
     // Connect the dart score labels to the dart board widget
     connect(this, SIGNAL(scoreSignalOne(int)), parent, SLOT(set_SlingOneText(int)));
     connect(this, SIGNAL(scoreSignalTwo(int)), parent, SLOT(set_SlingTwoText(int)));
@@ -285,22 +282,7 @@ void Widget::addScore()
     if(dartNumber == 3)
     {
         emit scoreSignalThree(score);
-        dartNumber = -1;
-        emit needsValidation(true);
-        }
-    }
-void Widget::validationBlocker(bool blockForValidation)
-{
-    if (blockForValidation == true)
-    {
-        disconnect(this, SIGNAL(scoreSignalOne(int)), theParent, SLOT(set_SlingOneText(int)));
-        disconnect(this, SIGNAL(scoreSignalTwo(int)), theParent, SLOT(set_SlingTwoText(int)));
-        disconnect(this, SIGNAL(scoreSignalThree(int)), theParent, SLOT(set_SlingThreeText(int)));
-    }
-    if (blockForValidation == false)
-    {
-        connect(this, SIGNAL(scoreSignalOne(int)), theParent, SLOT(set_SlingOneText(int)));
-        connect(this, SIGNAL(scoreSignalTwo(int)), theParent, SLOT(set_SlingTwoText(int)));
-        connect(this, SIGNAL(scoreSignalThree(int)), theParent, SLOT(set_SlingThreeText(int)));
+        emit needsValidation(); //Still need to figure out what to do with this
+        dartNumber = 0;
     }
 }
