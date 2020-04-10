@@ -363,5 +363,11 @@ void sqlHandler::sqlAddNewGame(int gameID){
 
 //Setter: needs to remove a game from the SQLite db
 void sqlHandler::sqlRemoveGame(int gameID){
+    QSqlQuery query;
 
+    query.prepare("DELETE FROM Games WHERE [Game ID] = ?");
+    query.bindValue(0, gameID);
+
+    query.exec();
+    query.first();
 }

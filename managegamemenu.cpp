@@ -35,3 +35,12 @@ void ManageGameMenu::FillGameList(){
     //Add list to listWidget
     ui->listWidget->addItems(gameInfoList);
 }
+
+void ManageGameMenu::on_GameMenuRemove_clicked()
+{
+    DataHandler myD;
+
+    myD.sqlGet("5:removeGame");
+
+    FillGameList();
+}
