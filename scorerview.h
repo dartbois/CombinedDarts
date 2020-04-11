@@ -42,7 +42,6 @@ public slots:
 
     void set_SlingThreeText(int score);
 
-
 signals:
 
     //These signals will show the stats in the audience window

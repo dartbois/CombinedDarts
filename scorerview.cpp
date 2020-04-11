@@ -2,7 +2,7 @@
 #include "ui_scorerview.h"
 #include "audienceview.h"
 #include <String>
-
+#include <QDebug>
 
 ScorerView::ScorerView(AudienceView *audienceWindow) :
     //QDialog(parent),
@@ -182,6 +182,8 @@ void ScorerView::on_ValadationYes_clicked()
 void ScorerView::on_ValadationNo_clicked()
 {
     //Database reject code goes here
+    SlingOneText->setVisible(false);
+    qDebug() << "This is validationNo button";
 }
 
 void ScorerView::on_SlingOne_linkActivated(const QString &link)
@@ -198,3 +200,4 @@ void ScorerView::on_SlineThree_linkActivated(const QString &link)
 {
 
 }
+

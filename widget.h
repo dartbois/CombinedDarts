@@ -16,13 +16,12 @@ public:
     ~Widget();
     int score = 0;
     int dartNumber;
+    bool validateState;
 public slots:
     void addScore();
 
     void validationBlocker(bool blockForValidation);
 
-    void validationBlocker(bool blockForValidation);
-    
  signals:
     void scoreSignalOne(int i);
     void scoreSignalTwo(int i);
@@ -32,6 +31,7 @@ public slots:
 
 private:
     QList<QPieSeries *> m_donuts;
+
     QWidget* theParent;
     QLabel *scoreDisplayer;
 };

@@ -39,7 +39,14 @@ public:
     string sqlGetPlayerList();
     string sqlGetGameList();
 
-    void sqlSetPlayerFinal(QString& playerID, player Player);
+    void sqlSetPlayerFinal(int playerID, player Player);
+    void sqlSetGameFinal(int gameID);
+
+    void sqlAddNewPlayer(int playerID, player Player);
+    void sqlRemovePlayer(int playerID);
+    void sqlAddNewGame(int gameID);
+    void sqlRemoveGame(int gameID);
+
 private:
     QSqlDatabase m_db;
 };
