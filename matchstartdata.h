@@ -14,7 +14,7 @@ public:
     int gameStartScore;
     int gameLegs;
     int gameMatches;
-    string gamePs[2];
+    int gamePs[2];
     string dataGet(string request);
 
 };
