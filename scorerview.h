@@ -16,6 +16,8 @@ class ScorerView : public QDialog
 public:
     explicit ScorerView(AudienceView *audienceWindow);
     ~ScorerView();
+    int legNumber;
+    int matchNumber;
 
 public slots:
     void on_PlayerOneStats_clicked();
@@ -85,6 +87,9 @@ signals:
     //These signals will be used for validation of the scores
     void sendValidateTrue(bool unblockScore);
 
+    //These signals will be used to send the latest throw string to Audience View
+    void sendLatestThrow(QString *latestThrow);
+
 public:
     Ui::ScorerView *ui;
     QLabel *StatisticsDisplay;
@@ -99,7 +104,10 @@ public:
     QLabel *SlingOneText;
     QLabel *SlingTwoText;
     QLabel *SlingThreeText;
-
+    QLabel *currentThrowLabel;
+    QLabel *lastThrowLabel;
+    QString *currentThrow;
+    QString *lastThrow;
 
 private slots:
     void on_ValadationYes_clicked();
